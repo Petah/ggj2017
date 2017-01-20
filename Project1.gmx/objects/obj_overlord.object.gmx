@@ -62,8 +62,9 @@ global.CONTROLLER_GAMPAD_4 = 6;
         var player = ds_list_find_value(players, i);
         instance_create(0, 0, obj_spawn);
     }
+    
+    map_gen();
 }
-
 </string>
           </argument>
         </arguments>
