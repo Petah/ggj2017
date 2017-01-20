@@ -3,6 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles"/>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -10,19 +11,33 @@
       <sprite>sprites\spr_console</sprite>
       <sprite>sprites\spr_overlord</sprite>
     </sprites>
+    <sprites name="jake">
+      <sprite>sprites\sprite3</sprite>
+    </sprites>
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
+      <sprite>sprites\spr_testbutton</sprite>
+    </sprites>
+    <sprites name="lord_commander_daniel">
+      <sprite>sprites\spr_green</sprite>
+      <sprite>sprites\spr_player1</sprite>
+      <sprite>sprites\spr_player2</sprite>
+      <sprite>sprites\spr_player3</sprite>
+      <sprite>sprites\spr_filler</sprite>
     </sprites>
     <sprites name="jason">
       <sprite>sprites\spr_spawner_placeholder</sprite>
       <sprite>sprites\spr_placeholder_minion</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="dave">
       <script>scripts\console_log.gml</script>
+      <script>scripts\check_input.gml</script>
     </scripts>
     <scripts name="jason">
       <script>scripts\spawn_right.gml</script>
@@ -30,6 +45,9 @@
       <script>scripts\spawn_up.gml</script>
       <script>scripts\spawn_down.gml</script>
     </scripts>
+    <script>scripts\mob_move.gml</script>
+    <script>scripts\add_player.gml</script>
+    <script>scripts\dan_map_gen.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -39,6 +57,7 @@
       <object>objects\obj_overlord</object>
       <object>objects\obj_console</object>
       <object>objects\obj_player</object>
+      <object>objects\obj_spawn</object>
     </objects>
     <objects name="harry">
       <object>objects\obj_hud_bottom</object>
@@ -47,11 +66,15 @@
       <object>objects\obj_spawner_base</object>
       <object>objects\obj_minion_1</object>
     </objects>
+    <objects name="lord_commander_daniel">
+      <object>objects\obj_player1</object>
+      <object>objects\obj_player2</object>
+      <object>objects\obj_player_3</object>
+      <object>objects\obj_player_4</object>
+      <object>objects\obj_filler</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <rooms name="harry">
-      <room>rooms\room1</room>
-    </rooms>
     <rooms name="dave">
       <room>rooms\rm_menu</room>
       <room>rooms\rm_game</room>

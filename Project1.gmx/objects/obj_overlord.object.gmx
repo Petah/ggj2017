@@ -27,6 +27,13 @@
             <kind>1</kind>
             <string>players = ds_list_create();
 
+global.CONTROLLER_KEYBOARD_1 = 1;
+global.CONTROLLER_KEYBOARD_2 = 2;
+global.CONTROLLER_GAMPAD_1 = 3;
+global.CONTROLLER_GAMPAD_2 = 4;
+global.CONTROLLER_GAMPAD_3 = 5;
+global.CONTROLLER_GAMPAD_4 = 6;
+
 </string>
           </argument>
         </arguments>
@@ -50,6 +57,11 @@
           <argument>
             <kind>1</kind>
             <string>if (room == rm_game) {
+    var length = ds_list_size(players);
+    for (var i = 0; i &lt; length; i++) {
+        var player = ds_list_find_value(players, i);
+        instance_create(0, 0, obj_spawn);
+    }
 }
 
 </string>
@@ -74,7 +86,32 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_game);
+            <string>console_log("Starting game");
+room_goto(rm_game);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="16">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>add_player(global.CONTROLLER_KEYBOARD_2);
 
 </string>
           </argument>
@@ -98,10 +135,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var player = instance_create(0, 0, obj_player);
-ds_list_add(players, player);
-
-console_log("Player " + string(ds_list_size(players)) + " joined.");
+            <string>add_player(global.CONTROLLER_KEYBOARD_1);
 
 </string>
           </argument>
