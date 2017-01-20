@@ -31,6 +31,7 @@
   <rooms name="rooms">
     <rooms name="dave">
       <room>rooms\rm_menu</room>
+      <room>rooms\rm_game</room>
     </rooms>
   </rooms>
   <help>

@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>logn = ds_list_create();
+            <string>log = ds_list_create();
 draw_set_font(fnt_default);
 console_log('Console created');
 sprite_index = noone;
