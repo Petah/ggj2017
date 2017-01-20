@@ -27,6 +27,13 @@
             <kind>1</kind>
             <string>players = ds_list_create();
 
+global.CONTROLLER_KEYBOARD_1 = 1;
+global.CONTROLLER_KEYBOARD_2 = 2;
+global.CONTROLLER_GAMPAD_1 = 3;
+global.CONTROLLER_GAMPAD_2 = 4;
+global.CONTROLLER_GAMPAD_3 = 5;
+global.CONTROLLER_GAMPAD_4 = 6;
+
 </string>
           </argument>
         </arguments>
@@ -49,15 +56,52 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (room == rm_game) {
+            <string>room_set_width(room, display_get_width());
+room_set_height(room, display_get_height());
+view_xview[0] = 0;
+view_yview[0] = 0;
+view_wview[0] = room_width;
+view_hview[0] = room_height;
+
+view_xport[0] = 0;
+view_yport[0] = 0;
+view_wport[0] = display_get_width();
+view_hport[0] = display_get_height();
+
+if (room == rm_game) {
     var length = ds_list_size(players);
     for (var i = 0; i &lt; length; i++) {
         var player = ds_list_find_value(players, i);
-        instance_create(0, 0, obj_spawn);
+        switch (player.number) {
+            case 1: {
+                console_log("Spawning player 1 base");
+                var spawner = instance_create(0, 0, obj_spawner_base);
+                spawner.player = player;
+                break;
+            }
+            case 2: {
+                console_log("Spawning player 2 base");
+                var spawner = instance_create(room_width - sprite_get_width(spr_spawner_placeholder), room_height - sprite_get_height(spr_spawner_placeholder), obj_spawner_base);
+                spawner.player = player;
+                break;
+            }
+            case 3: {
+                console_log("Spawning player 3 base");
+                var spawner = instance_create(room_width - sprite_get_width(spr_spawner_placeholder), 0, obj_spawner_base);
+                spawner.player = player;
+                break;
+            }
+            case 4: {
+                console_log("Spawning player 4 base");
+                var spawner = instance_create(0, room_height - sprite_get_height(spr_spawner_placeholder), obj_spawner_base);
+                spawner.player = player;
+                break;
+            }
+        }
     }
-    instance_create(0, 0, obj_hud_bottom);
+    instance_create(0, 0, obj_hud_bottom);    
+    map_gen();
 }
-
 </string>
           </argument>
         </arguments>
@@ -80,8 +124,63 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>console_log("Starting game");
-room_goto(rm_game);
+            <string>if (room = rm_menu) {
+    console_log("Starting game");
+    room_goto(rm_game);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (room == rm_menu) {
+    game_end();
+} else {
+    game_restart();
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="16">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (room = rm_menu) {
+    add_player(global.CONTROLLER_KEYBOARD_2);
+}
 
 </string>
           </argument>
@@ -105,12 +204,10 @@ room_goto(rm_game);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var player = instance_create(0, 0, obj_player);
-player.controller = player.CONTROLLER_KEYBOARD_1;
-ds_list_add(players, player);
-
-console_log("Player " + string(ds_list_size(players)) + " joined.");
-
+            <string>if (room = rm_menu) {
+    add_player(global.CONTROLLER_KEYBOARD_1);
+}
+    
 </string>
           </argument>
         </arguments>
