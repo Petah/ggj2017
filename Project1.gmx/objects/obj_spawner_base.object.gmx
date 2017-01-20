@@ -83,7 +83,11 @@ while (!placed &amp;&amp; bailout-- &gt; 0) {
         var distance = random_range(0, 200);
         x = other.x + lengthdir_x(distance, dir);
         y = other.y + lengthdir_y(distance, dir);
-        if (!place_meeting(x, y, obj_minion_1)) {
+        if (place_free(x, y) 
+                &amp;&amp; x &gt; 0 
+                &amp;&amp; y &gt; 0 
+                &amp;&amp; x &lt; room_width - sprite_get_width(sprite_index) 
+                &amp;&amp; y &lt; room_height - sprite_get_height(sprite_index)) {
             placed = true;
         }
     }

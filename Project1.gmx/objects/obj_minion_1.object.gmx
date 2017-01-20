@@ -25,10 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>step_size = 5;
+            <string>step_size = random_range(rel_speed(4), rel_speed(6));
 look_ahead = 3;
 moving = false;
 head_towards = 0;
+hp = 20;
 
 </string>
           </argument>
@@ -56,7 +57,15 @@ head_towards = 0;
     var move_towards_x = x + lengthdir_x(step_size * look_ahead, head_towards);
     var move_towards_y = y + lengthdir_y(step_size * look_ahead, head_towards);
     
-    mp_potential_step(move_towards_x, move_towards_y, step_size, false);
+    var collision = collision_circle(move_towards_x, move_towards_y, 16, obj_minion_1, true, true);
+    if (collision) {
+        if (collision.player.number != self.player.number) {
+            hurt(collision);
+        }
+    } else {
+        var random_step_size = step_size + random_range(-1, 1);
+        mp_potential_step(move_towards_x, move_towards_y, random_step_size, false);
+    }
 }
 
 if (head_towards &lt; 90 || head_towards &gt; 270) {

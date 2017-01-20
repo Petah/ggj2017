@@ -56,12 +56,48 @@ global.CONTROLLER_GAMPAD_4 = 6;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (room == rm_game) {
+            <string>room_set_width(room, display_get_width() / 2);
+room_set_height(room, display_get_height() / 2);
+view_xview[0] = 0;
+view_yview[0] = 0;
+view_wview[0] = room_width;
+view_hview[0] = room_height;
+
+view_xport[0] = 0;
+view_yport[0] = 0;
+view_wport[0] = display_get_width();
+view_hport[0] = display_get_height();
+
+if (room == rm_game) {
     var length = ds_list_size(players);
     for (var i = 0; i &lt; length; i++) {
         var player = ds_list_find_value(players, i);
-        var spawner = instance_create(random_range(0, room_width), random_range(0, room_height), obj_spawner_base);
-        spawner.player = player;
+        switch (player.number) {
+            case 1: {
+                console_log("Spawning player 1 base");
+                var spawner = instance_create(0, 0, obj_spawner_base);
+                spawner.player = player;
+                break;
+            }
+            case 2: {
+                console_log("Spawning player 2 base");
+                var spawner = instance_create(room_width - sprite_get_width(spr_spawner_placeholder), room_height - sprite_get_height(spr_spawner_placeholder), obj_spawner_base);
+                spawner.player = player;
+                break;
+            }
+            case 3: {
+                console_log("Spawning player 3 base");
+                var spawner = instance_create(room_width - sprite_get_width(spr_spawner_placeholder), 0, obj_spawner_base);
+                spawner.player = player;
+                break;
+            }
+            case 4: {
+                console_log("Spawning player 4 base");
+                var spawner = instance_create(0, room_height - sprite_get_height(spr_spawner_placeholder), obj_spawner_base);
+                spawner.player = player;
+                break;
+            }
+        }
     }
 }
 
@@ -113,7 +149,11 @@ global.CONTROLLER_GAMPAD_4 = 6;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_restart();
+            <string>if (room == rm_menu) {
+    game_end();
+} else {
+    game_restart();
+}
 
 </string>
           </argument>
