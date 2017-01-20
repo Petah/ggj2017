@@ -52,43 +52,7 @@ button_right = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>button_up = false;
-button_down = false;
-button_left = false;
-button_right = false;
-
-switch (controller) {
-    case global.CONTROLLER_KEYBOARD_1: {
-        if (keyboard_check(vk_up)) {
-            button_up = true;
-        }
-        if (keyboard_check(vk_down)) {
-            button_down = true;
-        }
-        if (keyboard_check(vk_left)) {
-            button_left = true;
-        }
-        if (keyboard_check(vk_right)) {
-            button_right = true;
-        }
-        break;
-    }
-    case global.CONTROLLER_KEYBOARD_2: {
-        if (keyboard_check(ord("W"))) {
-            button_up = true;
-        }
-        if (keyboard_check(ord("S"))) {
-            button_down = true;
-        }
-        if (keyboard_check(ord("A"))) {
-            button_left = true;
-        }
-        if (keyboard_check(ord("D"))) {
-            button_right = true;
-        }
-        break;
-    }
-}
+            <string>check_input();
 
 if (button_up) {
     console_log("Go up player " + string(number));
@@ -104,6 +68,22 @@ if (button_left) {
 
 if (button_right) {
     console_log("Go right player " + string(number));
+}
+
+if (button_action_1) {
+    console_log("Action 1 player " + string(number));
+}
+
+if (button_action_2) {
+    console_log("Action 2 player " + string(number));
+}
+
+if (button_action_3) {
+    console_log("Actin 3 player " + string(number));
+}
+
+if (button_action_4) {
+    console_log("Action 4 player " + string(number));
 }
 
 </string>

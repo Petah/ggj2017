@@ -33,6 +33,7 @@
   <scripts name="scripts">
     <scripts name="dave">
       <script>scripts\console_log.gml</script>
+      <script>scripts\check_input.gml</script>
     </scripts>
     <script>scripts\mob_move.gml</script>
     <script>scripts\add_player.gml</script>
