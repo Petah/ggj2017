@@ -55,6 +55,7 @@
         var player = ds_list_find_value(players, i);
         instance_create(0, 0, obj_spawn);
     }
+    instance_create(0, 0, obj_hud_bottom);
 }
 
 </string>

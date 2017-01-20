@@ -8,6 +8,99 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>frame_width = view_wview[0];
+frame_height = view_hview[0];
+
+hud_width = sprite_get_width(spr_hud_blue);
+hud_height = sprite_get_height(spr_hud_blue);
+hud_x = 0;
+hud_y = frame_height - hud_height;
+
+button_xspacing = (hud_width * 0.2) / 5;
+button_yspacing = (hud_height * 0.2);
+
+button_width = (hud_width * 0.8) / 4;
+button_height = hud_height * 0.6;
+
+button_xstart = button_xspacing;
+button_ystart = (frame_height - hud_height) + button_yspacing;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="56">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var screen_x = mouse_x - view_xview[0];
+var screen_y = mouse_y - view_yview[0];
+
+console_log("x: " + string(screen_x));
+console_log("y: " + string(screen_y));
+
+console_log("hud h: " + string(hud_height));
+console_log("hud w: " + string(hud_width));
+
+console_log("start x: " + string(button_xstart));
+console_log("start y: " + string(button_ystart));
+
+console_log("button w: " + string(button_width));
+console_log("button h: " + string(button_height));
+
+console_log("button spacing y: " + string(button_yspacing));
+console_log("button spacing x: " + string(button_xspacing));
+
+for (var w = 1; w &lt;= 4; w++) {
+    var x1 = (button_xstart * w) + (button_width * (w-1));
+    var y1 = button_ystart;
+    var x2 = x1 + button_width;
+    var y2 = y1 + button_height; 
+    
+    if(screen_x &gt;= x1 &amp;&amp; 
+    screen_x &lt;= x2 &amp;&amp;
+    screen_y &gt;= y1 &amp;&amp;
+    screen_y &lt;= y2){
+        console_log("Tapped inside button: " + string(w)); 
+        break;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -25,10 +118,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(0, 0, "Hello World");
-draw_sprite_ext(spr_hud_blue, 0, 0, view_hview[0], 1, 1, 0, c_white, 1);
-console_log(view_wview[0]);
-//draw_sprite(spr_hud_blue, 0, 0, view_hview[0]);
+            <string>var button_xscale = button_height / sprite_get_height(spr_testbutton);
+var button_yscale = button_width / sprite_get_width(spr_testbutton);
+
+//Hud
+draw_sprite_ext(spr_hud_blue, 0, 0, view_hview[0], 1, 1, 0, -1, 1);
+
+//Creep Buttons
+for (var w = 1; w &lt;= 4; w++) {
+    draw_sprite_ext(spr_testbutton, 0, (button_xstart * w) + (button_width * (w-1)), button_ystart, button_xscale, button_yscale, 0, -1, 1);
+    //Debuging
+    //draw_rectangle((button_xstart * w) + (button_width * (w-1)), button_ystart, ((button_xstart * w) + (button_width * (w-1))) + button_width, button_ystart + button_height, true);
+}
+
+
 </string>
           </argument>
         </arguments>
