@@ -29,8 +29,14 @@
 look_ahead = 3;
 moving = false;
 head_towards = 0;
-hp = 20;
 armor = 1;
+hp_max = 7;
+hp = hp_max;
+loaded = true;
+load_time = 0;
+load_speed = room_speed / 2;
+damage_min = 1;
+damage_max = 4;
 </string>
           </argument>
         </arguments>
@@ -85,10 +91,27 @@ armor = 1;
     var hit_towards_y = y + lengthdir_y(step_size * 2, head_towards);
     
     
-    var collision = collision_circle(hit_towards_x, hit_towards_y, 16, obj_minion_1, true, true);
-    if (collision) {
-        if (collision.player.number != self.player.number) {
-            hurt(collision);
+    if (load_time &lt; 0) {
+        loaded = true;
+    } else {
+        load_time--;
+    }
+    
+    var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 16, obj_minion_1, true, true);
+    if (hurt_instance) {
+        if (loaded) {
+            if (hurt_instance.player.number != self.player.number) {
+                loaded = false;
+                load_time = load_speed;
+                var swipe = instance_create(x, y, obj_swipe);
+                swipe.image_angle = head_towards;
+                hurt_instance.hp -= random_range(damage_min, damage_max);
+                if (hurt_instance.hp &lt;= 0) {
+                    with (hurt_instance) {
+                        instance_destroy();
+                    }
+                }
+            }
         }
     } else {
         var random_step_size = step_size + random_range(-1, 1);
@@ -125,7 +148,7 @@ if (head_towards &lt; 90 || head_towards &gt; 270) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_healthbar(x-16,y-20,x+16,y-16,(hp/20)*100,c_red,c_red,c_green,0,true,true);
+            <string>draw_healthbar(x - 16, y + 20, x + 16, y + 16, (hp / hp_max) * 100, c_red, c_red, c_green, 0, true, true);
 </string>
           </argument>
         </arguments>

@@ -26,20 +26,18 @@
           <argument>
             <kind>1</kind>
             <string>// window_set_fullscreen(true);
+/*
 window_set_position(0, 0);
 window_set_size(display_get_width(), display_get_height());
 
 room_set_width(rm_game, display_get_width());
 room_set_height(rm_game, display_get_height());
-
+*/
 players = ds_list_create();
 
 global.CONTROLLER_KEYBOARD_1 = 1;
 global.CONTROLLER_KEYBOARD_2 = 2;
-global.CONTROLLER_GAMPAD_1 = 3;
-global.CONTROLLER_GAMPAD_2 = 4;
-global.CONTROLLER_GAMPAD_3 = 5;
-global.CONTROLLER_GAMPAD_4 = 6;
+global.CONTROLLER_GAMEPAD = 3;
 
 global.particle_system = part_system_create();
 global.particle_type = part_type_create();
@@ -53,6 +51,41 @@ part_type_speed(global.particle_type, 3, 6, -0.2, 2);
 part_type_gravity(global.particle_type, 0.50, 270);
 part_type_blend(global.particle_system, true);
 part_type_life(global.particle_system, room_speed/2, room_speed/2);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var gp_num = gamepad_get_device_count();
+for (var i = 0; i &lt; gp_num; i++;){
+    if (gamepad_button_check_released(i, gp_face1)) {
+        add_player(global.CONTROLLER_GAMEPAD, i);
+    }
+    if (room = rm_menu) {
+        if (gamepad_button_check_released(i, gp_start)) {
+            console_log("Starting game");
+            room_goto(rm_game);
+        }
+    }
+}
 
 </string>
           </argument>
@@ -101,7 +134,7 @@ part_type_life(global.particle_system, room_speed/2, room_speed/2);
           <argument>
             <kind>1</kind>
             <string>if (room == rm_game) {
-
+/*
     view_xview[0] = 0;
     view_yview[0] = 0;
     view_wview[0] = display_get_width();
@@ -111,7 +144,7 @@ part_type_life(global.particle_system, room_speed/2, room_speed/2);
     view_yport[0] = 0;
     view_wport[0] = display_get_width();
     view_hport[0] = display_get_height();
-    
+*/  
     console_log(string(room_width) + "x" + string(room_height));
 
     var length = ds_list_size(players);
@@ -224,7 +257,7 @@ part_type_life(global.particle_system, room_speed/2, room_speed/2);
           <argument>
             <kind>1</kind>
             <string>if (room = rm_menu) {
-    add_player(global.CONTROLLER_KEYBOARD_2);
+    add_player(global.CONTROLLER_KEYBOARD_2, 2);
 }
 
 </string>
@@ -250,7 +283,7 @@ part_type_life(global.particle_system, room_speed/2, room_speed/2);
           <argument>
             <kind>1</kind>
             <string>if (room = rm_menu) {
-    add_player(global.CONTROLLER_KEYBOARD_1);
+    add_player(global.CONTROLLER_KEYBOARD_1, 1);
 }
     
 </string>
