@@ -54,10 +54,38 @@ hp = 20;
           <argument>
             <kind>1</kind>
             <string>if (moving) {
+    switch (head_towards) {
+        case 0: {
+            move_towards_x = room_width;
+            move_towards_y = y;
+            break;
+        }
+        case 90: {
+            move_towards_x = x;
+            move_towards_y = 0;
+            break;
+        }
+        case 180: {
+            move_towards_x = 0;
+            move_towards_y = y;
+            break;
+        }
+        case 270: {
+            move_towards_x = x;
+            move_towards_y = room_height;
+            break;
+        }
+    }
+    
+    /*
     var move_towards_x = x + lengthdir_x(step_size * look_ahead, head_towards);
     var move_towards_y = y + lengthdir_y(step_size * look_ahead, head_towards);
+    */
+    var hit_towards_x = x + lengthdir_x(step_size * look_ahead, head_towards);
+    var hit_towards_y = y + lengthdir_y(step_size * look_ahead, head_towards);
     
-    var collision = collision_circle(move_towards_x, move_towards_y, 16, obj_minion_1, true, true);
+    
+    var collision = collision_circle(hit_towards_x, hit_towards_y, 16, obj_minion_1, true, true);
     if (collision) {
         if (collision.player.number != self.player.number) {
             hurt(collision);

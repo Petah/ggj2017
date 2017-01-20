@@ -56,8 +56,8 @@ global.CONTROLLER_GAMPAD_4 = 6;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_set_width(room, display_get_width() / 2);
-room_set_height(room, display_get_height() / 2);
+            <string>room_set_width(room, display_get_width());
+room_set_height(room, display_get_height());
 view_xview[0] = 0;
 view_yview[0] = 0;
 view_wview[0] = room_width;
@@ -99,8 +99,9 @@ if (room == rm_game) {
             }
         }
     }
+    
+    map_gen();
 }
-
 </string>
           </argument>
         </arguments>
