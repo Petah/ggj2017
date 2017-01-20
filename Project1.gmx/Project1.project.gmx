@@ -27,6 +27,7 @@
       <script>scripts\console_log.gml</script>
     </scripts>
     <script>scripts\mob_move.gml</script>
+    <script>scripts\add_player.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -46,12 +47,12 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <rooms name="jake">
-      <room>rooms\room0</room>
-    </rooms>
     <rooms name="dave">
       <room>rooms\rm_menu</room>
       <room>rooms\rm_game</room>
+    </rooms>
+    <rooms name="jake">
+      <room>rooms\room0</room>
     </rooms>
     <rooms name="harry">
       <room>rooms\room1</room>

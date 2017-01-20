@@ -30,13 +30,6 @@ button_down = false;
 button_left = false;
 button_right = false;
 
-CONTROLLER_KEYBOARD_1 = 1;
-CONTROLLER_KEYBOARD_2 = 2;
-CONTROLLER_GAMPAD_1 = 3;
-CONTROLLER_GAMPAD_2 = 4;
-CONTROLLER_GAMPAD_3 = 5;
-CONTROLLER_GAMPAD_4 = 6;
-
 </string>
           </argument>
         </arguments>
@@ -65,7 +58,7 @@ button_left = false;
 button_right = false;
 
 switch (controller) {
-    case 1: {
+    case global.CONTROLLER_KEYBOARD_1: {
         if (keyboard_check(vk_up)) {
             button_up = true;
         }
@@ -80,22 +73,37 @@ switch (controller) {
         }
         break;
     }
+    case global.CONTROLLER_KEYBOARD_2: {
+        if (keyboard_check(ord("W"))) {
+            button_up = true;
+        }
+        if (keyboard_check(ord("S"))) {
+            button_down = true;
+        }
+        if (keyboard_check(ord("A"))) {
+            button_left = true;
+        }
+        if (keyboard_check(ord("D"))) {
+            button_right = true;
+        }
+        break;
+    }
 }
 
 if (button_up) {
-    console_log("Go up");
+    console_log("Go up player " + string(number));
 }
 
 if (button_down) {
-    console_log("Go down");
+    console_log("Go down player " + string(number));
 }
 
 if (button_left) {
-    console_log("Go left");
+    console_log("Go left player " + string(number));
 }
 
 if (button_right) {
-    console_log("Go right");
+    console_log("Go right player " + string(number));
 }
 
 </string>
