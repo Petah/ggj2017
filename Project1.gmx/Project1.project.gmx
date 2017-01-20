@@ -11,13 +11,11 @@
       <sprite>sprites\spr_console</sprite>
       <sprite>sprites\spr_overlord</sprite>
     </sprites>
-<<<<<<< HEAD
     <sprites name="jake">
       <sprite>sprites\sprite3</sprite>
-=======
+    </sprites>
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
->>>>>>> 434b4abc3f82cc555cb1d0b257bd30d71a31c17b
     </sprites>
   </sprites>
   <backgrounds name="background">
