@@ -67,7 +67,6 @@
     <script>scripts\mob_move.gml</script>
     <script>scripts\add_player.gml</script>
     <script>scripts\rel_speed.gml</script>
-    <script>scripts\hurt.gml</script>
     <scripts name="lord_commander_daniel">
       <script>scripts\map_gen.gml</script>
       <script>scripts\generate_laval_pool.gml</script>
