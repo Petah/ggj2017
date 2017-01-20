@@ -30,7 +30,7 @@ look_ahead = 3;
 moving = false;
 head_towards = 0;
 hp = 20;
-
+armor = 1;
 </string>
           </argument>
         </arguments>
