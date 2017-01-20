@@ -50,6 +50,11 @@
           <argument>
             <kind>1</kind>
             <string>if (room == rm_game) {
+    var length = ds_list_size(players);
+    for (var i = 0; i &lt; length; i++) {
+        var player = ds_list_find_value(players, i);
+        instance_create(0, 0, obj_spawn);
+    }
 }
 
 </string>
@@ -74,7 +79,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_game);
+            <string>console_log("Starting game");
+room_goto(rm_game);
 
 </string>
           </argument>
@@ -99,6 +105,7 @@
           <argument>
             <kind>1</kind>
             <string>var player = instance_create(0, 0, obj_player);
+player.controller = player.CONTROLLER_KEYBOARD_1;
 ds_list_add(players, player);
 
 console_log("Player " + string(ds_list_size(players)) + " joined.");
