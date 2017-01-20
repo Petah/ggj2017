@@ -48,6 +48,7 @@
       <object>objects\obj_console</object>
       <object>objects\obj_player</object>
       <object>objects\obj_spawn</object>
+      <object>objects\obj_server</object>
     </objects>
     <objects name="harry">
       <object>objects\obj_hud_bottom</object>
