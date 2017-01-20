@@ -54,6 +54,7 @@ sprite_index = noone;
             <kind>1</kind>
             <string>var length = ds_list_size(log);
 var y_offset = 0;
+draw_set_color(c_white);
 for (var i = 0; i &lt; length; i++) {
     var line = ds_list_find_value(log, i);
     draw_text(x, y + y_offset, line);

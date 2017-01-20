@@ -74,7 +74,5 @@ for(var i = 0; i < number_of_pools; i++){
         }
         
         ds_list_add(listOfCentrePools, instance_create(selected_width, selected_height, obj_lava_centre));
-        
-        console_log("random: " + string(dir));
     } 
 }

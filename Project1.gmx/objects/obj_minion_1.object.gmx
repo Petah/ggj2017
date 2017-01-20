@@ -81,8 +81,8 @@ hp = 20;
     var move_towards_x = x + lengthdir_x(step_size * look_ahead, head_towards);
     var move_towards_y = y + lengthdir_y(step_size * look_ahead, head_towards);
     */
-    var hit_towards_x = x + lengthdir_x(step_size * look_ahead, head_towards);
-    var hit_towards_y = y + lengthdir_y(step_size * look_ahead, head_towards);
+    var hit_towards_x = x + lengthdir_x(step_size * 2, head_towards);
+    var hit_towards_y = y + lengthdir_y(step_size * 2, head_towards);
     
     
     var collision = collision_circle(hit_towards_x, hit_towards_y, 16, obj_minion_1, true, true);

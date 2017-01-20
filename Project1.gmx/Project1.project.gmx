@@ -12,6 +12,7 @@
       <sprite>sprites\spr_overlord</sprite>
       <sprite>sprites\spr_viking</sprite>
       <sprite>sprites\spr_druid</sprite>
+      <sprite>sprites\spr_swipe</sprite>
     </sprites>
     <sprites name="jake">
       <sprites name="creep">
@@ -65,7 +66,6 @@
     </scripts>
     <script>scripts\mob_move.gml</script>
     <script>scripts\add_player.gml</script>
-    <script>scripts\dan_map_gen.gml</script>
     <script>scripts\rel_speed.gml</script>
     <script>scripts\hurt.gml</script>
     <scripts name="lord_commander_daniel">
@@ -83,6 +83,7 @@
       <object>objects\obj_console</object>
       <object>objects\obj_player</object>
       <object>objects\obj_spawn</object>
+      <object>objects\obj_swipe</object>
       <object>objects\obj_server</object>
     </objects>
     <objects name="harry">
