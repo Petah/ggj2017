@@ -12,7 +12,13 @@
       <sprite>sprites\spr_overlord</sprite>
     </sprites>
     <sprites name="jake">
-      <sprite>sprites\sprite3</sprite>
+      <sprites name="creep">
+        <sprite>sprites\spr_mob_right</sprite>
+        <sprite>sprites\spr_mob_left</sprite>
+        <sprite>sprites\spr_mob_forward</sprite>
+        <sprite>sprites\spr_mob_backward</sprite>
+      </sprites>
+      <sprite>sprites\spr_obstacle</sprite>
     </sprites>
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
@@ -66,6 +72,10 @@
     <objects name="jason">
       <object>objects\obj_spawner_base</object>
       <object>objects\obj_minion_1</object>
+    </objects>
+    <objects name="jake">
+      <object>objects\obj_creep</object>
+      <object>objects\obj_obstacle</object>
     </objects>
     <objects name="lord_commander_daniel">
       <object>objects\obj_player1</object>
