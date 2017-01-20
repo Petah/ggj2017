@@ -60,7 +60,8 @@ global.CONTROLLER_GAMPAD_4 = 6;
     var length = ds_list_size(players);
     for (var i = 0; i &lt; length; i++) {
         var player = ds_list_find_value(players, i);
-        instance_create(0, 0, obj_spawn);
+        var spawner = instance_create(random_range(0, room_width), random_range(0, room_height), obj_spawner_base);
+        spawner.player = player;
     }
     
     map_gen();
@@ -87,8 +88,33 @@ global.CONTROLLER_GAMPAD_4 = 6;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>console_log("Starting game");
-room_goto(rm_game);
+            <string>if (room = rm_menu) {
+    console_log("Starting game");
+    room_goto(rm_game);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>game_restart();
 
 </string>
           </argument>
@@ -112,7 +138,9 @@ room_goto(rm_game);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>add_player(global.CONTROLLER_KEYBOARD_2);
+            <string>if (room = rm_menu) {
+    add_player(global.CONTROLLER_KEYBOARD_2);
+}
 
 </string>
           </argument>
@@ -136,8 +164,10 @@ room_goto(rm_game);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>add_player(global.CONTROLLER_KEYBOARD_1);
-
+            <string>if (room = rm_menu) {
+    add_player(global.CONTROLLER_KEYBOARD_1);
+}
+    
 </string>
           </argument>
         </arguments>
