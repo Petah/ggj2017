@@ -105,7 +105,7 @@ damage_max = 4;
                 load_time = load_speed;
                 var swipe = instance_create(x, y, obj_swipe);
                 swipe.image_angle = head_towards;
-                hurt_instance.hp -= random_range(damage_min, damage_max);
+                hurt_instance.hp -= random_range(damage_min, damage_max)/hurt_instance.armor;
                 if (hurt_instance.hp &lt;= 0) {
                     with (hurt_instance) {
                         instance_destroy();

@@ -29,7 +29,11 @@
 button_down = false;
 button_left = false;
 button_right = false;
-
+armor = 10;
+hp_max = 7;
+hp = hp_max;
+damage_min = 1;
+damage_max = 4;
 </string>
           </argument>
         </arguments>
