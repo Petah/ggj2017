@@ -105,6 +105,7 @@ room_goto(rm_game);
           <argument>
             <kind>1</kind>
             <string>var player = instance_create(0, 0, obj_player);
+player.controller = player.CONTROLLER_KEYBOARD_1;
 ds_list_add(players, player);
 
 console_log("Player " + string(ds_list_size(players)) + " joined.");
