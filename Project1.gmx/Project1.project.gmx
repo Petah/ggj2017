@@ -51,6 +51,7 @@
     <sprites name="jason">
       <sprite>sprites\spr_spawner_placeholder</sprite>
       <sprite>sprites\spr_placeholder_minion</sprite>
+      <sprite>sprites\spr_placeholder_boost</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -67,6 +68,7 @@
       <script>scripts\spawn_left.gml</script>
       <script>scripts\spawn_up.gml</script>
       <script>scripts\spawn_down.gml</script>
+      <script>scripts\set_minion_stats.gml</script>
     </scripts>
     <script>scripts\mob_move.gml</script>
     <script>scripts\add_player.gml</script>
@@ -95,6 +97,7 @@
     <objects name="jason">
       <object>objects\obj_spawner_base</object>
       <object>objects\obj_minion_1</object>
+      <object>objects\obj_powerup_health</object>
     </objects>
     <objects name="jake">
       <object>objects\obj_creep</object>
