@@ -10,8 +10,8 @@
       <sprite>sprites\spr_console</sprite>
       <sprite>sprites\spr_overlord</sprite>
     </sprites>
-    <sprites name="jason">
-      <sprite>sprites\spr_base_placeholder</sprite>
+    <sprites name="harry">
+      <sprite>sprites\spr_hud_blue</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -30,11 +30,14 @@
       <object>objects\obj_console</object>
       <object>objects\obj_player</object>
     </objects>
-    <objects name="jason">
-      <object>objects\object3</object>
+    <objects name="harry">
+      <object>objects\obj_hud_bottom</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <rooms name="harry">
+      <room>rooms\room1</room>
+    </rooms>
     <rooms name="dave">
       <room>rooms\rm_menu</room>
       <room>rooms\rm_game</room>
