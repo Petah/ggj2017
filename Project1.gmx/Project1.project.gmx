@@ -54,6 +54,7 @@
     <script>scripts\mob_move.gml</script>
     <script>scripts\add_player.gml</script>
     <script>scripts\dan_map_gen.gml</script>
+    <script>scripts\blood_splatter.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
