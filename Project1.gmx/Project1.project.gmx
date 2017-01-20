@@ -5,7 +5,11 @@
   </Configs>
   <datafiles number="20" name="datafiles"/>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="dave">
+      <sound>sound\snd_hit</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="dave">
       <sprite>sprites\spr_console</sprite>
