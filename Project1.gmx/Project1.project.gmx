@@ -16,6 +16,14 @@
     </sprites>
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
+      <sprite>sprites\spr_testbutton</sprite>
+    </sprites>
+    <sprites name="lord_commander_daniel">
+      <sprite>sprites\spr_green</sprite>
+      <sprite>sprites\spr_player1</sprite>
+      <sprite>sprites\spr_player2</sprite>
+      <sprite>sprites\spr_player3</sprite>
+      <sprite>sprites\spr_filler</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -28,6 +36,7 @@
     </scripts>
     <script>scripts\mob_move.gml</script>
     <script>scripts\add_player.gml</script>
+    <script>scripts\dan_map_gen.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -42,20 +51,18 @@
     <objects name="harry">
       <object>objects\obj_hud_bottom</object>
     </objects>
-    <objects name="jake">
-      <object>objects\object0</object>
+    <objects name="lord_commander_daniel">
+      <object>objects\obj_player1</object>
+      <object>objects\obj_player2</object>
+      <object>objects\obj_player_3</object>
+      <object>objects\obj_player_4</object>
+      <object>objects\obj_filler</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <rooms name="dave">
       <room>rooms\rm_menu</room>
       <room>rooms\rm_game</room>
-    </rooms>
-    <rooms name="jake">
-      <room>rooms\room0</room>
-    </rooms>
-    <rooms name="harry">
-      <room>rooms\room1</room>
     </rooms>
   </rooms>
   <help>
