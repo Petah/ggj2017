@@ -56,18 +56,42 @@ button_right = false;
 
 if (button_up) {
     console_log("Go up player " + string(number));
+    with (obj_minion_1) {
+        if (player.number == other.number) {
+            moving = true;
+            head_towards = 90;
+        }
+    }
 }
 
 if (button_down) {
     console_log("Go down player " + string(number));
+    with (obj_minion_1) {
+        if (player.number == other.number) {
+            moving = true;
+            head_towards = 270;
+        }
+    }
 }
 
 if (button_left) {
     console_log("Go left player " + string(number));
+    with (obj_minion_1) {
+        if (player.number == other.number) {
+            moving = true;
+            head_towards = 180;
+        }
+    }
 }
 
 if (button_right) {
     console_log("Go right player " + string(number));
+    with (obj_minion_1) {
+        if (player.number == other.number) {
+            moving = true;
+            head_towards = 0;
+        }
+    }
 }
 
 if (button_action_1) {

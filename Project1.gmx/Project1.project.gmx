@@ -3,13 +3,15 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1" name="datafiles"/>
+  <datafiles number="20" name="datafiles"/>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="dave">
       <sprite>sprites\spr_console</sprite>
       <sprite>sprites\spr_overlord</sprite>
+      <sprite>sprites\spr_viking</sprite>
+      <sprite>sprites\spr_druid</sprite>
     </sprites>
     <sprites name="jake">
       <sprites name="creep">
@@ -30,6 +32,16 @@
       <sprite>sprites\spr_player2</sprite>
       <sprite>sprites\spr_player3</sprite>
       <sprite>sprites\spr_filler</sprite>
+      <sprite>sprites\lava_cell_bottom</sprite>
+      <sprite>sprites\lava_cell_left</sprite>
+      <sprite>sprites\lava_cell_right</sprite>
+      <sprite>sprites\lava_cell_tile</sprite>
+      <sprite>sprites\lava_cell_top</sprite>
+      <sprite>sprites\lava_cell_bottom_right</sprite>
+      <sprite>sprites\lava_tile_top_right</sprite>
+      <sprite>sprites\lava_tile_corner_bottom_left</sprite>
+      <sprite>sprites\lava_tile_corner_top_left</sprite>
+      <sprite>sprites\lava_tile_corner_top_right</sprite>
     </sprites>
     <sprites name="jason">
       <sprite>sprites\spr_spawner_placeholder</sprite>
@@ -54,6 +66,12 @@
     <script>scripts\mob_move.gml</script>
     <script>scripts\add_player.gml</script>
     <script>scripts\dan_map_gen.gml</script>
+    <script>scripts\rel_speed.gml</script>
+    <script>scripts\hurt.gml</script>
+    <scripts name="lord_commander_daniel">
+      <script>scripts\map_gen.gml</script>
+      <script>scripts\generate_laval_pool.gml</script>
+    </scripts>
     <script>scripts\blood_splatter.gml</script>
   </scripts>
   <fonts name="fonts">
@@ -83,6 +101,15 @@
       <object>objects\obj_player2</object>
       <object>objects\obj_player_3</object>
       <object>objects\obj_player_4</object>
+      <object>objects\obj_lava_centre</object>
+      <object>objects\obj_lava_centre_top</object>
+      <object>objects\obj_lava_top_right</object>
+      <object>objects\obj_lava_top_left</object>
+      <object>objects\obj_lava_centre_right</object>
+      <object>objects\obj_lava_bottom_right</object>
+      <object>objects\obj_lava_centre_bottom</object>
+      <object>objects\obj_lava_bottom_left</object>
+      <object>objects\obj_java_centre_left</object>
       <object>objects\obj_filler</object>
     </objects>
   </objects>

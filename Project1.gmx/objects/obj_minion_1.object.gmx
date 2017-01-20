@@ -3,11 +3,111 @@
   <spriteName>spr_placeholder_minion</spriteName>
   <solid>-1</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>step_size = random_range(rel_speed(4), rel_speed(6));
+look_ahead = 3;
+moving = false;
+head_towards = 0;
+hp = 20;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (moving) {
+    switch (head_towards) {
+        case 0: {
+            move_towards_x = room_width;
+            move_towards_y = y;
+            break;
+        }
+        case 90: {
+            move_towards_x = x;
+            move_towards_y = 0;
+            break;
+        }
+        case 180: {
+            move_towards_x = 0;
+            move_towards_y = y;
+            break;
+        }
+        case 270: {
+            move_towards_x = x;
+            move_towards_y = room_height;
+            break;
+        }
+    }
+    
+    /*
+    var move_towards_x = x + lengthdir_x(step_size * look_ahead, head_towards);
+    var move_towards_y = y + lengthdir_y(step_size * look_ahead, head_towards);
+    */
+    var hit_towards_x = x + lengthdir_x(step_size * look_ahead, head_towards);
+    var hit_towards_y = y + lengthdir_y(step_size * look_ahead, head_towards);
+    
+    
+    var collision = collision_circle(hit_towards_x, hit_towards_y, 16, obj_minion_1, true, true);
+    if (collision) {
+        if (collision.player.number != self.player.number) {
+            hurt(collision);
+        }
+    } else {
+        var random_step_size = step_size + random_range(-1, 1);
+        mp_potential_step(move_towards_x, move_towards_y, random_step_size, false);
+    }
+}
+
+if (head_towards &lt; 90 || head_towards &gt; 270) {
+    image_xscale = 1;
+} else {
+    image_xscale = -1;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>
