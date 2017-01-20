@@ -29,18 +29,19 @@
       <object>objects\obj_overlord</object>
       <object>objects\obj_console</object>
       <object>objects\obj_player</object>
+      <object>objects\obj_spawn</object>
     </objects>
     <objects name="harry">
       <object>objects\obj_hud_bottom</object>
     </objects>
   </objects>
   <rooms name="rooms">
-    <rooms name="harry">
-      <room>rooms\room1</room>
-    </rooms>
     <rooms name="dave">
       <room>rooms\rm_menu</room>
       <room>rooms\rm_game</room>
+    </rooms>
+    <rooms name="harry">
+      <room>rooms\room1</room>
     </rooms>
   </rooms>
   <help>

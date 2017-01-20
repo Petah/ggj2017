@@ -50,6 +50,11 @@
           <argument>
             <kind>1</kind>
             <string>if (room == rm_game) {
+    var length = ds_list_size(players);
+    for (var i = 0; i &lt; length; i++) {
+        var player = ds_list_find_value(players, i);
+        instance_create(0, 0, obj_spawn);
+    }
 }
 
 </string>
@@ -74,7 +79,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rm_game);
+            <string>console_log("Starting game");
+room_goto(rm_game);
 
 </string>
           </argument>
