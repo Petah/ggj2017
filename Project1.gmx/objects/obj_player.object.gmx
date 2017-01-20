@@ -7,7 +7,111 @@
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>button_up = false;
+button_down = false;
+button_left = false;
+button_right = false;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>button_up = false;
+button_down = false;
+button_left = false;
+button_right = false;
+
+switch (controller) {
+    case global.CONTROLLER_KEYBOARD_1: {
+        if (keyboard_check(vk_up)) {
+            button_up = true;
+        }
+        if (keyboard_check(vk_down)) {
+            button_down = true;
+        }
+        if (keyboard_check(vk_left)) {
+            button_left = true;
+        }
+        if (keyboard_check(vk_right)) {
+            button_right = true;
+        }
+        break;
+    }
+    case global.CONTROLLER_KEYBOARD_2: {
+        if (keyboard_check(ord("W"))) {
+            button_up = true;
+        }
+        if (keyboard_check(ord("S"))) {
+            button_down = true;
+        }
+        if (keyboard_check(ord("A"))) {
+            button_left = true;
+        }
+        if (keyboard_check(ord("D"))) {
+            button_right = true;
+        }
+        break;
+    }
+}
+
+if (button_up) {
+    console_log("Go up player " + string(number));
+}
+
+if (button_down) {
+    console_log("Go down player " + string(number));
+}
+
+if (button_left) {
+    console_log("Go left player " + string(number));
+}
+
+if (button_right) {
+    console_log("Go right player " + string(number));
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>
