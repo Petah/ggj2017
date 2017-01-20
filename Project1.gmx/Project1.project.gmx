@@ -13,6 +13,13 @@
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
     </sprites>
+    <sprites name="lord_commander_daniel">
+      <sprite>sprites\spr_green</sprite>
+      <sprite>sprites\spr_player1</sprite>
+      <sprite>sprites\spr_player2</sprite>
+      <sprite>sprites\spr_player3</sprite>
+      <sprite>sprites\spr_filler</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -33,8 +40,18 @@
     <objects name="harry">
       <object>objects\obj_hud_bottom</object>
     </objects>
+    <objects name="lord_commander_daniel">
+      <object>objects\obj_player1</object>
+      <object>objects\obj_player2</object>
+      <object>objects\obj_player_3</object>
+      <object>objects\obj_player_4</object>
+      <object>objects\obj_filler</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <rooms name="lord_command_daniel">
+      <room>rooms\rm_mega_game</room>
+    </rooms>
     <rooms name="harry">
       <room>rooms\room1</room>
     </rooms>
