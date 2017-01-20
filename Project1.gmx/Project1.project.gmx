@@ -25,6 +25,10 @@
       <sprite>sprites\spr_player3</sprite>
       <sprite>sprites\spr_filler</sprite>
     </sprites>
+    <sprites name="jason">
+      <sprite>sprites\spr_spawner_placeholder</sprite>
+      <sprite>sprites\spr_placeholder_minion</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -34,6 +38,12 @@
     <scripts name="dave">
       <script>scripts\console_log.gml</script>
       <script>scripts\check_input.gml</script>
+    </scripts>
+    <scripts name="jason">
+      <script>scripts\spawn_right.gml</script>
+      <script>scripts\spawn_left.gml</script>
+      <script>scripts\spawn_up.gml</script>
+      <script>scripts\spawn_down.gml</script>
     </scripts>
     <script>scripts\mob_move.gml</script>
     <script>scripts\add_player.gml</script>
@@ -52,6 +62,10 @@
     </objects>
     <objects name="harry">
       <object>objects\obj_hud_bottom</object>
+    </objects>
+    <objects name="jason">
+      <object>objects\obj_spawner_base</object>
+      <object>objects\obj_minion_1</object>
     </objects>
     <objects name="lord_commander_daniel">
       <object>objects\obj_player1</object>
