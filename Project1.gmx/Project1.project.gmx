@@ -13,12 +13,22 @@
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
     </sprites>
+    <sprites name="jason">
+      <sprite>sprites\spr_spawner_placeholder</sprite>
+      <sprite>sprites\spr_placeholder_minion</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="dave">
       <script>scripts\console_log.gml</script>
+    </scripts>
+    <scripts name="jason">
+      <script>scripts\spawn_right.gml</script>
+      <script>scripts\spawn_left.gml</script>
+      <script>scripts\spawn_up.gml</script>
+      <script>scripts\spawn_down.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -32,6 +42,10 @@
     </objects>
     <objects name="harry">
       <object>objects\obj_hud_bottom</object>
+    </objects>
+    <objects name="jason">
+      <object>objects\obj_spawner_base</object>
+      <object>objects\obj_minion_1</object>
     </objects>
   </objects>
   <rooms name="rooms">
