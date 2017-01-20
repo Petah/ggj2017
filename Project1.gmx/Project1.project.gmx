@@ -10,6 +10,8 @@
     <sprites name="dave">
       <sprite>sprites\spr_console</sprite>
       <sprite>sprites\spr_overlord</sprite>
+      <sprite>sprites\spr_viking</sprite>
+      <sprite>sprites\spr_druid</sprite>
     </sprites>
     <sprites name="jake">
       <sprites name="creep">

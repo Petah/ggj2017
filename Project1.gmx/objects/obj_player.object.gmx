@@ -59,7 +59,7 @@ if (button_up) {
     with (obj_minion_1) {
         if (player.number == other.number) {
             moving = true;
-            direction = 90;
+            head_towards = 90;
         }
     }
 }
@@ -69,7 +69,7 @@ if (button_down) {
     with (obj_minion_1) {
         if (player.number == other.number) {
             moving = true;
-            direction = 270;
+            head_towards = 270;
         }
     }
 }
@@ -79,7 +79,7 @@ if (button_left) {
     with (obj_minion_1) {
         if (player.number == other.number) {
             moving = true;
-            direction = 180;
+            head_towards = 180;
         }
     }
 }
@@ -89,7 +89,7 @@ if (button_right) {
     with (obj_minion_1) {
         if (player.number == other.number) {
             moving = true;
-            direction = 0;
+            head_towards = 0;
         }
     }
 }

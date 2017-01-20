@@ -54,6 +54,27 @@ alarm[0] = spawn_speed;
 
 var instance = instance_create(0, 0, obj_minion_1);
 instance.player = player;
+
+switch (player.number) {
+    case 1: {
+        instance.sprite_index = spr_viking;
+        break;
+    }
+    case 2: {
+        instance.sprite_index = spr_druid;
+        break;
+    }
+    case 3: {
+        instance.sprite_index = spr_viking;
+        break;
+    }
+    case 4: {
+        instance.sprite_index = spr_druid;
+        break;
+    }
+}
+
+
 var placed = false;
 var bailout = 100;
 while (!placed &amp;&amp; bailout-- &gt; 0) {
@@ -67,6 +88,12 @@ while (!placed &amp;&amp; bailout-- &gt; 0) {
         }
     }
 }
+if (!placed) {
+    with (instance) {
+        instance_destroy();
+    }
+}
+
 
 alarm[0] = spawn_speed;
 
