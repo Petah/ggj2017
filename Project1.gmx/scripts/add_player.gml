@@ -12,3 +12,7 @@ with (obj_overlord) {
     console_log(string(ds_list_size(players)) + " players.");
 }
 
+if (room = rm_game) {
+    place_player(player);
+}
+

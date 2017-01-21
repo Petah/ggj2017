@@ -5,12 +5,17 @@
   </Configs>
   <datafiles number="20" name="datafiles"/>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="dave">
+      <sound>sound\snd_hit</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="dave">
       <sprite>sprites\spr_console</sprite>
       <sprite>sprites\spr_overlord</sprite>
       <sprite>sprites\spr_viking</sprite>
+      <sprite>sprites\spr_slow</sprite>
       <sprite>sprites\spr_druid</sprite>
       <sprite>sprites\spr_swipe</sprite>
     </sprites>
@@ -34,24 +39,44 @@
       <sprite>sprites\spr_player2</sprite>
       <sprite>sprites\spr_player3</sprite>
       <sprite>sprites\spr_filler</sprite>
-      <sprite>sprites\lava_cell_bottom</sprite>
-      <sprite>sprites\lava_cell_left</sprite>
-      <sprite>sprites\lava_cell_right</sprite>
-      <sprite>sprites\lava_cell_tile</sprite>
-      <sprite>sprites\lava_cell_top</sprite>
-      <sprite>sprites\lava_cell_bottom_right</sprite>
-      <sprite>sprites\lava_tile_top_right</sprite>
-      <sprite>sprites\lava_tile_corner_bottom_left</sprite>
-      <sprite>sprites\lava_tile_corner_top_left</sprite>
-      <sprite>sprites\lava_tile_corner_top_right</sprite>
+      <sprite>sprites\spr_lava_cell_bottom</sprite>
+      <sprite>sprites\spr_lava_cell_left</sprite>
+      <sprite>sprites\spr_lava_cell_right</sprite>
+      <sprite>sprites\spr_lava_cell_tile</sprite>
+      <sprite>sprites\spr_lava_cell_top</sprite>
+      <sprite>sprites\spr_lava_cell_bottom_right</sprite>
+      <sprite>sprites\spr_lava_tile_top_right</sprite>
+      <sprite>sprites\spr_lava_tile_corner_bottom_left</sprite>
+      <sprite>sprites\spr_lava_tile_corner_top_left</sprite>
+      <sprite>sprites\spr_lava_tile_corner_top_right</sprite>
+      <sprite>sprites\spr_boulder</sprite>
+      <sprite>sprites\spr_tree1</sprite>
+      <sprite>sprites\spr_tree2</sprite>
+      <sprite>sprites\spr_pebble1</sprite>
+      <sprite>sprites\spr_pebble2</sprite>
+      <sprite>sprites\spr_pebble3</sprite>
+      <sprite>sprites\spr_rock1</sprite>
+      <sprite>sprites\spr_rock2</sprite>
+      <sprite>sprites\spr_rock3</sprite>
+      <sprite>sprites\spr_pebble4</sprite>
+      <sprite>sprites\spr_pebble5</sprite>
+      <sprite>sprites\spr_pebble6</sprite>
+      <sprite>sprites\spr_pebble7</sprite>
+      <sprite>sprites\spr_boulder2</sprite>
+      <sprite>sprites\spr_boulder3</sprite>
+      <sprite>sprites\spr_spire</sprite>
     </sprites>
     <sprites name="jason">
       <sprite>sprites\spr_spawner_placeholder</sprite>
       <sprite>sprites\spr_placeholder_minion</sprite>
+      <sprite>sprites\spr_placeholder_boost</sprite>
     </sprites>
+    <sprite>sprites\sprite31</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\background1</background>
+    <background>background\background2</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -64,6 +89,7 @@
       <script>scripts\spawn_left.gml</script>
       <script>scripts\spawn_up.gml</script>
       <script>scripts\spawn_down.gml</script>
+      <script>scripts\set_minion_stats.gml</script>
     </scripts>
     <script>scripts\mob_move.gml</script>
     <script>scripts\add_player.gml</script>
@@ -71,8 +97,10 @@
     <scripts name="lord_commander_daniel">
       <script>scripts\map_gen.gml</script>
       <script>scripts\generate_laval_pool.gml</script>
+      <script>scripts\generate_rocks.gml</script>
     </scripts>
     <script>scripts\blood_splatter.gml</script>
+    <script>scripts\place_player.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -83,6 +111,7 @@
       <object>objects\obj_console</object>
       <object>objects\obj_player</object>
       <object>objects\obj_spawn</object>
+      <object>objects\obj_slow</object>
       <object>objects\obj_swipe</object>
       <object>objects\obj_server</object>
     </objects>
@@ -92,6 +121,9 @@
     <objects name="jason">
       <object>objects\obj_spawner_base</object>
       <object>objects\obj_minion_1</object>
+      <object>objects\obj_powerup_health</object>
+      <object>objects\obj_powerup_parent</object>
+      <object>objects\obj_powerup_armor</object>
     </objects>
     <objects name="jake">
       <object>objects\obj_creep</object>
@@ -112,6 +144,21 @@
       <object>objects\obj_lava_bottom_left</object>
       <object>objects\obj_java_centre_left</object>
       <object>objects\obj_filler</object>
+      <object>objects\obj_tree1</object>
+      <object>objects\obj_boulder</object>
+      <object>objects\obj_tree2</object>
+      <object>objects\obj_pebble1</object>
+      <object>objects\obj_pebble2</object>
+      <object>objects\obj_pebble3</object>
+      <object>objects\obj_boulder2</object>
+      <object>objects\obj_rock</object>
+      <object>objects\obj_rock2</object>
+      <object>objects\obj_rock3</object>
+      <object>objects\obj_pebble4</object>
+      <object>objects\obj_pebble5</object>
+      <object>objects\obj_pebble6</object>
+      <object>objects\obj_pebble7</object>
+      <object>objects\obj_spire</object>
     </objects>
   </objects>
   <rooms name="rooms">
@@ -119,6 +166,7 @@
       <room>rooms\rm_menu</room>
       <room>rooms\rm_game</room>
     </rooms>
+    <room>rooms\rm_static_room</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

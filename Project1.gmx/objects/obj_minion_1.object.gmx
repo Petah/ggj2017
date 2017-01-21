@@ -29,6 +29,7 @@
 look_ahead = 3;
 moving = false;
 head_towards = 0;
+armor = 1;
 hp_max = 7;
 hp = hp_max;
 loaded = true;
@@ -36,6 +37,7 @@ load_time = 0;
 load_speed = room_speed / 2;
 damage_min = 1;
 damage_max = 4;
+move_speed = 4;
 
 health_y_offset = 16;
 </string>
@@ -106,7 +108,7 @@ health_y_offset = 16;
                 load_time = load_speed;
                 var swipe = instance_create(x, y, obj_swipe);
                 swipe.image_angle = head_towards;
-                hurt_instance.hp -= random_range(damage_min, damage_max);
+                hurt_instance.hp -= random_range(damage_min, damage_max)/hurt_instance.armor;
                 if (hurt_instance.hp &lt;= 0) {
                     with (hurt_instance) {
                         blood_splatter(hurt_instance.x, hurt_instance.y, 20, point_direction(x, y, hurt_instance.x, hurt_instance.y));
@@ -115,11 +117,15 @@ health_y_offset = 16;
                 } else {
                     blood_splatter(hurt_instance.x, hurt_instance.y, 10, point_direction(x, y, hurt_instance.x, hurt_instance.y));
                 }
+                audio_play_sound(snd_hit, 1, false);
             }
         }
     } else {
-        var random_step_size = step_size + random_range(-1, 1);
-        mp_potential_step(move_towards_x, move_towards_y, random_step_size, false);
+        var current_speed = move_speed;
+        if (place_meeting(x, y, obj_slow)) {
+            current_speed = move_speed / 2;
+        }
+        mp_potential_step(move_towards_x, move_towards_y, current_speed, false);
     }
 }
 
