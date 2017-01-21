@@ -97,6 +97,7 @@
       <script>scripts\map_gen.gml</script>
       <script>scripts\generate_laval_pool.gml</script>
       <script>scripts\generate_rocks.gml</script>
+      <script>scripts\generate_trees.gml</script>
     </scripts>
     <script>scripts\blood_splatter.gml</script>
     <script>scripts\place_player.gml</script>

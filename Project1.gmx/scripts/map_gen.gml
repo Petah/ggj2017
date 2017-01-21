@@ -14,4 +14,4 @@ for(var i = 0; i < room_width/divider; i++){
 
 generate_laval_pool();
 generate_rocks();
-
+generate_trees();
