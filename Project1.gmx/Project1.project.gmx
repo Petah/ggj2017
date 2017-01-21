@@ -27,7 +27,8 @@
         <sprite>sprites\spr_mob_backward</sprite>
       </sprites>
       <sprite>sprites\spr_obstacle</sprite>
-      <sprite>sprites\spr_blood</sprite>
+      <sprite>sprites\spr_particle_blood</sprite>
+      <sprite>sprites\spr_particle_cloud</sprite>
     </sprites>
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
@@ -67,13 +68,38 @@
       <sprite>sprites\spr_boulder2</sprite>
       <sprite>sprites\spr_boulder3</sprite>
       <sprite>sprites\spr_spire</sprite>
+      <sprite>sprites\spr_temp_slim_bob</sprite>
+      <sprite>sprites\spr_tree3</sprite>
     </sprites>
     <sprites name="jason">
       <sprite>sprites\spr_spawner_placeholder</sprite>
       <sprite>sprites\spr_placeholder_minion</sprite>
       <sprite>sprites\spr_placeholder_boost</sprite>
+      <sprite>sprites\spr_placeholder_speed</sprite>
+      <sprite>sprites\spr_placeholder_dmgmax</sprite>
+      <sprite>sprites\spr_placeholder_dmgmin</sprite>
     </sprites>
     <sprite>sprites\sprite31</sprite>
+    <sprite>sprites\spr_logo</sprite>
+    <sprite>sprites\spr_soldier</sprite>
+    <sprite>sprites\spr_samurai</sprite>
+    <sprite>sprites\spr_base_1</sprite>
+    <sprite>sprites\spr_bro</sprite>
+    <sprite>sprites\spr_body</sprite>
+    <sprite>sprites\spr_legs</sprite>
+    <sprite>sprites\spr_body_1</sprite>
+    <sprite>sprites\spr_body_2</sprite>
+    <sprite>sprites\spr_body_3</sprite>
+    <sprite>sprites\spr_body_4</sprite>
+    <sprite>sprites\spr_arm_1</sprite>
+    <sprite>sprites\spr_arm_4</sprite>
+    <sprite>sprites\spr_arm_2</sprite>
+    <sprite>sprites\spr_arm_3</sprite>
+    <sprite>sprites\spr_legs_idle</sprite>
+    <sprite>sprites\spr_punch_1</sprite>
+    <sprite>sprites\spr_punch_2</sprite>
+    <sprite>sprites\spr_punch_3</sprite>
+    <sprite>sprites\spr_punch_4</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -87,10 +113,6 @@
       <script>scripts\check_input.gml</script>
     </scripts>
     <scripts name="jason">
-      <script>scripts\spawn_right.gml</script>
-      <script>scripts\spawn_left.gml</script>
-      <script>scripts\spawn_up.gml</script>
-      <script>scripts\spawn_down.gml</script>
       <script>scripts\set_minion_stats.gml</script>
     </scripts>
     <script>scripts\mob_move.gml</script>
@@ -100,9 +122,11 @@
       <script>scripts\map_gen.gml</script>
       <script>scripts\generate_laval_pool.gml</script>
       <script>scripts\generate_rocks.gml</script>
+      <script>scripts\generate_trees.gml</script>
     </scripts>
-    <script>scripts\blood_splatter.gml</script>
+    <script>scripts\particle_blood.gml</script>
     <script>scripts\place_player.gml</script>
+    <script>scripts\particle_dust.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -127,6 +151,10 @@
       <object>objects\obj_powerup_health</object>
       <object>objects\obj_powerup_parent</object>
       <object>objects\obj_powerup_armor</object>
+      <object>objects\obj_powerup_generator</object>
+      <object>objects\obj_powerup_speed</object>
+      <object>objects\obj_powerup_dmgmax</object>
+      <object>objects\obj_powerup_dmgmin</object>
     </objects>
     <objects name="jake">
       <object>objects\obj_creep</object>
@@ -162,7 +190,10 @@
       <object>objects\obj_pebble6</object>
       <object>objects\obj_pebble7</object>
       <object>objects\obj_spire</object>
+      <object>objects\obj_slim_bob</object>
+      <object>objects\obj_tree3</object>
     </objects>
+    <object>objects\obj_logo</object>
   </objects>
   <rooms name="rooms">
     <rooms name="dave">
