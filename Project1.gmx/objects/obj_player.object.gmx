@@ -34,7 +34,9 @@ hp_max = 7;
 hp = hp_max;
 damage_min = 1;
 damage_max = 4;
-move_speed = 4;
+raw_speed = 16;
+move_speed = log2(raw_speed);
+
 
 </string>
           </argument>
@@ -61,7 +63,7 @@ move_speed = 4;
             <string>check_input();
 
 if (button_up) {
-    console_log("Go up player " + string(number));
+//    console_log("Go up player " + string(number));
     with (obj_minion_1) {
         if (player.number == other.number) {
             moving = true;
@@ -71,7 +73,7 @@ if (button_up) {
 }
 
 if (button_down) {
-    console_log("Go down player " + string(number));
+//    console_log("Go down player " + string(number));
     with (obj_minion_1) {
         if (player.number == other.number) {
             moving = true;
@@ -81,7 +83,7 @@ if (button_down) {
 }
 
 if (button_left) {
-    console_log("Go left player " + string(number));
+//    console_log("Go left player " + string(number));
     with (obj_minion_1) {
         if (player.number == other.number) {
             moving = true;
@@ -91,7 +93,7 @@ if (button_left) {
 }
 
 if (button_right) {
-    console_log("Go right player " + string(number));
+//    console_log("Go right player " + string(number));
     with (obj_minion_1) {
         if (player.number == other.number) {
             moving = true;

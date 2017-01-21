@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>// window_set_fullscreen(true);
+//window_set_position(0, 0);
+window_set_size(1200, 900);
 /*
-window_set_position(0, 0);
-window_set_size(display_get_width(), display_get_height());
 
 room_set_width(rm_game, display_get_width());
 room_set_height(rm_game, display_get_height());
@@ -182,7 +182,8 @@ for (var i = 0; i &lt; gp_num; i++;){
         var player = ds_list_find_value(players, i);
         place_player(player);
     }
-    instance_create(0, 0, obj_hud_bottom);    
+    instance_create(0, 0, obj_hud_bottom);  
+    instance_create(0,0, obj_powerup_generator);  
     map_gen();
 }
 
