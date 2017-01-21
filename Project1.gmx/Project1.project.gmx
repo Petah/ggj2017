@@ -27,7 +27,8 @@
         <sprite>sprites\spr_mob_backward</sprite>
       </sprites>
       <sprite>sprites\spr_obstacle</sprite>
-      <sprite>sprites\spr_blood</sprite>
+      <sprite>sprites\spr_particle_blood</sprite>
+      <sprite>sprites\spr_particle_cloud</sprite>
     </sprites>
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
@@ -99,8 +100,9 @@
       <script>scripts\generate_laval_pool.gml</script>
       <script>scripts\generate_rocks.gml</script>
     </scripts>
-    <script>scripts\blood_splatter.gml</script>
+    <script>scripts\particle_blood.gml</script>
     <script>scripts\place_player.gml</script>
+    <script>scripts\particle_dust.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>

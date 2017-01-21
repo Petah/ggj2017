@@ -38,8 +38,9 @@ load_speed = room_speed / 2;
 damage_min = 1;
 damage_max = 4;
 move_speed = 4;
-
+waiting_to_move = true;
 health_y_offset = 16;
+
 </string>
           </argument>
         </arguments>
@@ -63,6 +64,8 @@ health_y_offset = 16;
           <argument>
             <kind>1</kind>
             <string>if (moving) {
+    waiting_to_move = false;
+
     switch (head_towards) {
         case 0: {
             move_towards_x = room_width-sprite_xoffset;
@@ -111,11 +114,11 @@ health_y_offset = 16;
                 hurt_instance.hp -= random_range(damage_min, damage_max)/hurt_instance.armor;
                 if (hurt_instance.hp &lt;= 0) {
                     with (hurt_instance) {
-                        blood_splatter(hurt_instance.x, hurt_instance.y, 20, point_direction(x, y, hurt_instance.x, hurt_instance.y));
+                        particle_blood(hurt_instance.x, hurt_instance.y, 20, point_direction(x, y, hurt_instance.x, hurt_instance.y));
                         instance_destroy();
                     }
                 } else {
-                    blood_splatter(hurt_instance.x, hurt_instance.y, 10, point_direction(x, y, hurt_instance.x, hurt_instance.y));
+                    particle_blood(hurt_instance.x, hurt_instance.y, 10, point_direction(x, y, hurt_instance.x, hurt_instance.y));
                 }
                 audio_play_sound(snd_hit, 1, false);
             }
@@ -127,6 +130,9 @@ health_y_offset = 16;
         }
         mp_potential_step(move_towards_x, move_towards_y, current_speed, false);
     }
+    if (!waiting_to_move) {
+        particle_dust(x, y, 3);
+    }
 }
 
 if (head_towards &lt; 90 || head_towards &gt; 270) {
@@ -134,8 +140,8 @@ if (head_towards &lt; 90 || head_towards &gt; 270) {
 } else {
     image_xscale = -1;
 }
-
 depth = -y;
+
 
 </string>
           </argument>
