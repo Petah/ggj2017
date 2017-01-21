@@ -94,6 +94,8 @@
       <object>objects\obj_spawner_base</object>
       <object>objects\obj_minion_1</object>
       <object>objects\obj_powerup_health</object>
+      <object>objects\obj_powerup_parent</object>
+      <object>objects\obj_powerup_armor</object>
     </objects>
     <objects name="jake">
       <object>objects\obj_creep</object>

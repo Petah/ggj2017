@@ -114,8 +114,13 @@ damage_max = 4;
             }
         }
     } else {
-        var random_step_size = step_size + random_range(-1, 1);
-        mp_potential_step(move_towards_x, move_towards_y, random_step_size, false);
+        var pickup_instance = collision_circle(hit_towards_x, hit_towards_y, 16, obj_minion_1, true, true);
+        if(pickup_instance) {
+            
+        }else {
+            var random_step_size = step_size + random_range(-1, 1);
+            mp_potential_step(move_towards_x, move_towards_y, random_step_size, false);
+        }
     }
 }
 
