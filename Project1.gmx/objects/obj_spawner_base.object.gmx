@@ -61,34 +61,17 @@ alarm[0] = 10;
 var instance = instance_create(0, 0, obj_minion_1);
 instance.player = player;
 set_minion_stats(instance);
-switch (player.number) {
-    case 1: {
-        instance.sprite_index = spr_viking;
-        break;
-    }
-    case 2: {
-        instance.sprite_index = spr_druid;
-        break;
-    }
-    case 3: {
-        instance.sprite_index = spr_soldier;
-        break;
-    }
-    case 4: {
-        instance.sprite_index = spr_samurai;
-        break;
-    }
-}
 
 
 var placed = false;
 var bailout = 100;
 while (!placed &amp;&amp; bailout-- &gt; 0) {
     with (instance) {
-        var dir = random_range(0, 360);
-        var distance = random_range(0, 200);
+        var dir = point_direction(other.x, other.y, room_width / 2, room_height / 2) + random_range(-45, 45);
+        var distance = random_range(100, 200);
         x = other.x + lengthdir_x(distance, dir);
         y = other.y + lengthdir_y(distance, dir);
+//        collision
         if (place_free(x, y) 
                 &amp;&amp; x &gt; 0 
                 &amp;&amp; y &gt; 0 
@@ -103,7 +86,6 @@ if (!placed) {
         instance_destroy();
     }
 }
-
 
 alarm[0] = spawn_speed;
 

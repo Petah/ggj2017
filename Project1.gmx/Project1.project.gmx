@@ -79,6 +79,18 @@
     <sprite>sprites\spr_soldier</sprite>
     <sprite>sprites\spr_samurai</sprite>
     <sprite>sprites\spr_base_1</sprite>
+    <sprite>sprites\spr_bro</sprite>
+    <sprite>sprites\spr_body</sprite>
+    <sprite>sprites\spr_legs</sprite>
+    <sprite>sprites\spr_body_2</sprite>
+    <sprite>sprites\spr_body_3</sprite>
+    <sprite>sprites\spr_body_1</sprite>
+    <sprite>sprites\spr_body_4</sprite>
+    <sprite>sprites\spr_arm_1</sprite>
+    <sprite>sprites\spr_arm_4</sprite>
+    <sprite>sprites\spr_arm_2</sprite>
+    <sprite>sprites\spr_arm_3</sprite>
+    <sprite>sprites\spr_legs_idle</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
