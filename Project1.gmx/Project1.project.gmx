@@ -27,6 +27,7 @@
         <sprite>sprites\spr_mob_backward</sprite>
       </sprites>
       <sprite>sprites\spr_obstacle</sprite>
+      <sprite>sprites\spr_blood</sprite>
     </sprites>
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
@@ -51,9 +52,9 @@
       <sprite>sprites\spr_boulder</sprite>
       <sprite>sprites\spr_tree1</sprite>
       <sprite>sprites\spr_tree2</sprite>
-      <sprite>sprites\spr_pebble1</sprite>
       <sprite>sprites\spr_pebble2</sprite>
       <sprite>sprites\spr_pebble3</sprite>
+      <sprite>sprites\spr_pebble1</sprite>
       <sprite>sprites\spr_rock1</sprite>
       <sprite>sprites\spr_rock2</sprite>
       <sprite>sprites\spr_rock3</sprite>
@@ -72,6 +73,7 @@
       <sprite>sprites\spr_placeholder_speed</sprite>
     </sprites>
     <sprite>sprites\sprite31</sprite>
+    <sprite>sprites\spr_logo</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -113,6 +115,7 @@
       <object>objects\obj_spawn</object>
       <object>objects\obj_slow</object>
       <object>objects\obj_swipe</object>
+      <object>objects\obj_hitable</object>
       <object>objects\obj_server</object>
     </objects>
     <objects name="harry">
@@ -162,6 +165,7 @@
       <object>objects\obj_pebble7</object>
       <object>objects\obj_spire</object>
     </objects>
+    <object>objects\obj_logo</object>
   </objects>
   <rooms name="rooms">
     <rooms name="dave">

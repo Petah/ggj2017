@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-10</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_hitable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -39,6 +39,7 @@ damage_min = 1;
 damage_max = 4;
 move_speed = 4;
 
+health_y_offset = 16;
 </string>
           </argument>
         </arguments>
@@ -64,23 +65,23 @@ move_speed = 4;
             <string>if (moving) {
     switch (head_towards) {
         case 0: {
-            move_towards_x = room_width;
+            move_towards_x = room_width-sprite_xoffset;
             move_towards_y = y;
             break;
         }
         case 90: {
             move_towards_x = x;
-            move_towards_y = 0;
+            move_towards_y = sprite_yoffset;
             break;
         }
         case 180: {
-            move_towards_x = 0;
+            move_towards_x = -sprite_xoffset;
             move_towards_y = y;
             break;
         }
         case 270: {
             move_towards_x = x;
-            move_towards_y = room_height;
+            move_towards_y = room_height-sprite_yoffset-health_y_offset;
             break;
         }
     }
@@ -99,7 +100,7 @@ move_speed = 4;
         load_time--;
     }
     
-    var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 16, obj_minion_1, true, true);
+    var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 16, obj_hitable, true, true);
     if (hurt_instance) {
         if (loaded) {
             if (hurt_instance.player.number != self.player.number) {
@@ -110,8 +111,12 @@ move_speed = 4;
                 hurt_instance.hp -= random_range(damage_min, damage_max)/hurt_instance.armor;
                 if (hurt_instance.hp &lt;= 0) {
                     with (hurt_instance) {
+                        event_user(0);
+                        blood_splatter(hurt_instance.x, hurt_instance.y, 20, point_direction(x, y, hurt_instance.x, hurt_instance.y));
                         instance_destroy();
                     }
+                } else {
+                    blood_splatter(hurt_instance.x, hurt_instance.y, 10, point_direction(x, y, hurt_instance.x, hurt_instance.y));
                 }
                 audio_play_sound(snd_hit, 1, false);
             }
@@ -131,8 +136,31 @@ if (head_towards &lt; 90 || head_towards &gt; 270) {
     image_xscale = -1;
 }
 
-depth = y;
+depth = -y;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Dead
 </string>
           </argument>
         </arguments>
@@ -155,7 +183,7 @@ depth = y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_healthbar(x - 16, y + 20, x + 16, y + 16, (hp / hp_max) * 100, c_red, c_red, c_green, 0, true, true);
+            <string>draw_healthbar(x - 16, y+health_y_offset, x + 16, y+20, (hp / hp_max) * 100, c_red, c_red, c_green, 0, true, true);
 </string>
           </argument>
         </arguments>
