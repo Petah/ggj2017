@@ -186,7 +186,8 @@ for (var i = 0; i &lt; gp_num; i++;){
         var player = ds_list_find_value(players, i);
         place_player(player);
     }
-    instance_create(0, 0, obj_hud_bottom);    
+    instance_create(0, 0, obj_hud_bottom);  
+    instance_create(0,0, obj_powerup_generator);  
     map_gen();
 }
 
