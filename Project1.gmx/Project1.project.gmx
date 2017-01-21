@@ -70,8 +70,10 @@
       <sprite>sprites\spr_spawner_placeholder</sprite>
       <sprite>sprites\spr_placeholder_minion</sprite>
       <sprite>sprites\spr_placeholder_boost</sprite>
+      <sprite>sprites\spr_placeholder_speed</sprite>
     </sprites>
     <sprite>sprites\sprite31</sprite>
+    <sprite>sprites\spr_logo</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -126,6 +128,8 @@
       <object>objects\obj_powerup_health</object>
       <object>objects\obj_powerup_parent</object>
       <object>objects\obj_powerup_armor</object>
+      <object>objects\obj_powerup_generator</object>
+      <object>objects\obj_powerup_speed</object>
     </objects>
     <objects name="jake">
       <object>objects\obj_creep</object>
@@ -162,6 +166,7 @@
       <object>objects\obj_pebble7</object>
       <object>objects\obj_spire</object>
     </objects>
+    <object>objects\obj_logo</object>
   </objects>
   <rooms name="rooms">
     <rooms name="dave">
