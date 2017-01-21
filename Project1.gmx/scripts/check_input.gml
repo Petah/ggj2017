@@ -62,4 +62,31 @@ switch (controller) {
         }
         break;
     }
+    case global.CONTROLLER_GAMEPAD: {
+        if (gamepad_axis_value(controller_number, gp_axislv) < -0.5) {
+            button_up = true;
+        }
+        if (gamepad_axis_value(controller_number, gp_axislv) > 0.5) {
+            button_down = true;
+        }
+        if (gamepad_axis_value(controller_number, gp_axislh) < -0.5) {
+            button_left = true;
+        }
+        if (gamepad_axis_value(controller_number, gp_axislh) > 0.5) {
+            button_right = true;
+        }
+        if (gamepad_button_check(controller_number, gp_face1)) {
+            button_action_1 = true;
+        }
+        if (gamepad_button_check(controller_number, gp_face2)) {
+            button_action_2 = true;
+        }
+        if (gamepad_button_check(controller_number, gp_face3)) {
+            button_action_3 = true;
+        }
+        if (gamepad_button_check(controller_number, gp_face4)) {
+            button_action_4 = true;
+        }
+        break;
+    }
 }

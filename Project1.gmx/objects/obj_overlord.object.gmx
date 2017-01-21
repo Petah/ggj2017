@@ -25,14 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>players = ds_list_create();
+            <string>// window_set_fullscreen(true);
+/*
+window_set_position(0, 0);
+window_set_size(display_get_width(), display_get_height());
+
+room_set_width(rm_game, display_get_width());
+room_set_height(rm_game, display_get_height());
+*/
+players = ds_list_create();
 
 global.CONTROLLER_KEYBOARD_1 = 1;
 global.CONTROLLER_KEYBOARD_2 = 2;
-global.CONTROLLER_GAMPAD_1 = 3;
-global.CONTROLLER_GAMPAD_2 = 4;
-global.CONTROLLER_GAMPAD_3 = 5;
-global.CONTROLLER_GAMPAD_4 = 6;
+global.CONTROLLER_GAMEPAD = 3;
 
 global.particle_system = part_system_create();
 global.particle_type = part_type_create();
@@ -46,6 +51,99 @@ part_type_speed(global.particle_type, 3, 6, -0.2, 2);
 part_type_gravity(global.particle_type, 0.50, 270);
 part_type_blend(global.particle_system, true);
 part_type_life(global.particle_system, room_speed/2, room_speed/2);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var gp_num = gamepad_get_device_count();
+for (var i = 0; i &lt; gp_num; i++;){
+    if (gamepad_button_check_released(i, gp_face1)) {
+        var in_use = false;
+        with (obj_player) {
+            if (controller == global.CONTROLLER_GAMEPAD &amp;&amp; controller_number == i) {
+                in_use = true;
+            }
+        }
+        if (!in_use) {
+            add_player(global.CONTROLLER_GAMEPAD, i);
+        }
+        break;
+    }
+    if (keyboard_check_released(vk_enter)) {
+        var in_use = false;
+        with (obj_player) {
+            if (controller == global.CONTROLLER_KEYBOARD_1) {
+                in_use = true;
+            }
+        }
+        if (!in_use) {
+            add_player(global.CONTROLLER_KEYBOARD_1, 1);
+        }
+        break;
+    }
+    if (keyboard_check_released(vk_shift)) {
+        var in_use = false;
+        with (obj_player) {
+            if (controller == global.CONTROLLER_KEYBOARD_2) {
+                in_use = true;
+            }
+        }
+        if (!in_use) {
+            add_player(global.CONTROLLER_KEYBOARD_2, 2);
+        }
+        break;
+    }
+    if (room = rm_menu) {
+        if (gamepad_button_check_released(i, gp_start)) {
+            console_log("Starting game");
+            room_goto(rm_game);
+        }
+        break;
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="50">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(mouse_x, mouse_y, obj_swipe);
 
 </string>
           </argument>
@@ -69,52 +167,29 @@ part_type_life(global.particle_system, room_speed/2, room_speed/2);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_set_width(room, display_get_width());
-room_set_height(room, display_get_height());
-view_xview[0] = 0;
-view_yview[0] = 0;
-view_wview[0] = room_width;
-view_hview[0] = room_height;
+            <string>if (room == rm_game) {
+/*
+    view_xview[0] = 0;
+    view_yview[0] = 0;
+    view_wview[0] = display_get_width();
+    view_hview[0] = display_get_height();
+    
+    view_xport[0] = 0;
+    view_yport[0] = 0;
+    view_wport[0] = display_get_width();
+    view_hport[0] = display_get_height();
+*/  
+    console_log(string(room_width) + "x" + string(room_height));
 
-view_xport[0] = 0;
-view_yport[0] = 0;
-view_wport[0] = display_get_width();
-view_hport[0] = display_get_height();
-
-if (room == rm_game) {
     var length = ds_list_size(players);
     for (var i = 0; i &lt; length; i++) {
         var player = ds_list_find_value(players, i);
-        switch (player.number) {
-            case 1: {
-                console_log("Spawning player 1 base");
-                var spawner = instance_create(0, 0, obj_spawner_base);
-                spawner.player = player;
-                break;
-            }
-            case 2: {
-                console_log("Spawning player 2 base");
-                var spawner = instance_create(room_width - sprite_get_width(spr_spawner_placeholder), room_height - sprite_get_height(spr_spawner_placeholder), obj_spawner_base);
-                spawner.player = player;
-                break;
-            }
-            case 3: {
-                console_log("Spawning player 3 base");
-                var spawner = instance_create(room_width - sprite_get_width(spr_spawner_placeholder), 0, obj_spawner_base);
-                spawner.player = player;
-                break;
-            }
-            case 4: {
-                console_log("Spawning player 4 base");
-                var spawner = instance_create(0, room_height - sprite_get_height(spr_spawner_placeholder), obj_spawner_base);
-                spawner.player = player;
-                break;
-            }
-        }
+        place_player(player);
     }
     instance_create(0, 0, obj_hud_bottom);    
     map_gen();
 }
+
 </string>
           </argument>
         </arguments>
@@ -169,58 +244,6 @@ if (room == rm_game) {
     game_restart();
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="16">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (room = rm_menu) {
-    add_player(global.CONTROLLER_KEYBOARD_2);
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (room = rm_menu) {
-    add_player(global.CONTROLLER_KEYBOARD_1);
-}
-    
 </string>
           </argument>
         </arguments>

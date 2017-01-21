@@ -5,13 +5,19 @@
   </Configs>
   <datafiles number="20" name="datafiles"/>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="dave">
+      <sound>sound\snd_hit</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="dave">
       <sprite>sprites\spr_console</sprite>
       <sprite>sprites\spr_overlord</sprite>
       <sprite>sprites\spr_viking</sprite>
+      <sprite>sprites\spr_slow</sprite>
       <sprite>sprites\spr_druid</sprite>
+      <sprite>sprites\spr_swipe</sprite>
     </sprites>
     <sprites name="jake">
       <sprites name="creep">
@@ -62,6 +68,7 @@
     <sprites name="jason">
       <sprite>sprites\spr_spawner_placeholder</sprite>
       <sprite>sprites\spr_placeholder_minion</sprite>
+      <sprite>sprites\spr_placeholder_boost</sprite>
     </sprites>
     <sprite>sprites\sprite31</sprite>
   </sprites>
@@ -81,17 +88,18 @@
       <script>scripts\spawn_left.gml</script>
       <script>scripts\spawn_up.gml</script>
       <script>scripts\spawn_down.gml</script>
+      <script>scripts\set_minion_stats.gml</script>
     </scripts>
     <script>scripts\mob_move.gml</script>
     <script>scripts\add_player.gml</script>
     <script>scripts\rel_speed.gml</script>
-    <script>scripts\hurt.gml</script>
     <scripts name="lord_commander_daniel">
       <script>scripts\map_gen.gml</script>
       <script>scripts\generate_laval_pool.gml</script>
       <script>scripts\generate_rocks.gml</script>
     </scripts>
     <script>scripts\blood_splatter.gml</script>
+    <script>scripts\place_player.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -102,6 +110,8 @@
       <object>objects\obj_console</object>
       <object>objects\obj_player</object>
       <object>objects\obj_spawn</object>
+      <object>objects\obj_slow</object>
+      <object>objects\obj_swipe</object>
       <object>objects\obj_server</object>
     </objects>
     <objects name="harry">
@@ -110,6 +120,9 @@
     <objects name="jason">
       <object>objects\obj_spawner_base</object>
       <object>objects\obj_minion_1</object>
+      <object>objects\obj_powerup_health</object>
+      <object>objects\obj_powerup_parent</object>
+      <object>objects\obj_powerup_armor</object>
     </objects>
     <objects name="jake">
       <object>objects\obj_creep</object>

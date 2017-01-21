@@ -1,5 +1,3 @@
-console_log("test");
-
 var divider = 32;
 var grid    = ds_grid_create(room_width/divider, room_height/divider);
 
