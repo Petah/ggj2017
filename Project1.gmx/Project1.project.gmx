@@ -72,6 +72,7 @@
       <sprite>sprites\spr_placeholder_boost</sprite>
     </sprites>
     <sprite>sprites\sprite31</sprite>
+    <sprite>sprites\spr_logo</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -161,6 +162,7 @@
       <object>objects\obj_pebble7</object>
       <object>objects\obj_spire</object>
     </objects>
+    <object>objects\obj_logo</object>
   </objects>
   <rooms name="rooms">
     <rooms name="dave">
