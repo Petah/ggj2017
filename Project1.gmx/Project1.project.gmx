@@ -32,6 +32,8 @@
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
       <sprite>sprites\spr_testbutton</sprite>
+      <sprite>sprites\spr_health</sprite>
+      <sprite>sprites\spr_player_face1</sprite>
     </sprites>
     <sprites name="lord_commander_daniel">
       <sprite>sprites\spr_green</sprite>
@@ -70,15 +72,8 @@
       <sprite>sprites\spr_spawner_placeholder</sprite>
       <sprite>sprites\spr_placeholder_minion</sprite>
       <sprite>sprites\spr_placeholder_boost</sprite>
-      <sprite>sprites\spr_placeholder_speed</sprite>
-      <sprite>sprites\spr_placeholder_dmgmax</sprite>
-      <sprite>sprites\spr_placeholder_dmgmin</sprite>
     </sprites>
     <sprite>sprites\sprite31</sprite>
-    <sprite>sprites\spr_logo</sprite>
-    <sprite>sprites\spr_soldier</sprite>
-    <sprite>sprites\spr_samurai</sprite>
-    <sprite>sprites\spr_base_1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -92,6 +87,10 @@
       <script>scripts\check_input.gml</script>
     </scripts>
     <scripts name="jason">
+      <script>scripts\spawn_right.gml</script>
+      <script>scripts\spawn_left.gml</script>
+      <script>scripts\spawn_up.gml</script>
+      <script>scripts\spawn_down.gml</script>
       <script>scripts\set_minion_stats.gml</script>
     </scripts>
     <script>scripts\mob_move.gml</script>
@@ -101,7 +100,6 @@
       <script>scripts\map_gen.gml</script>
       <script>scripts\generate_laval_pool.gml</script>
       <script>scripts\generate_rocks.gml</script>
-      <script>scripts\generate_trees.gml</script>
     </scripts>
     <script>scripts\blood_splatter.gml</script>
     <script>scripts\place_player.gml</script>
@@ -129,10 +127,6 @@
       <object>objects\obj_powerup_health</object>
       <object>objects\obj_powerup_parent</object>
       <object>objects\obj_powerup_armor</object>
-      <object>objects\obj_powerup_generator</object>
-      <object>objects\obj_powerup_speed</object>
-      <object>objects\obj_powerup_dmgmax</object>
-      <object>objects\obj_powerup_dmgmin</object>
     </objects>
     <objects name="jake">
       <object>objects\obj_creep</object>
@@ -169,7 +163,6 @@
       <object>objects\obj_pebble7</object>
       <object>objects\obj_spire</object>
     </objects>
-    <object>objects\obj_logo</object>
   </objects>
   <rooms name="rooms">
     <rooms name="dave">

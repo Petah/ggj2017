@@ -4,7 +4,7 @@ var divider           = 32;
 var roomQuarter      = min(room_width, room_height)/3;
 var centre_height     = room_height/2;
 var centre_width      = room_width/2;
-var number_of_pools  = random(3);
+var number_of_pools  = random(2);
 
 var horizontalGridSpaces = room_width/divider;
 var verticleGridSpaces   = room_height/divider;
@@ -15,7 +15,7 @@ var current_width;
 var selected_width;
 
 for(var i = 0; i < number_of_pools; i++){
-    var number_of_central_tiles = random_range(45,80);
+    var number_of_central_tiles = random_range(45,60);
 
     // > 1 for up,  < 1 for down
     if(random(2) > 1){

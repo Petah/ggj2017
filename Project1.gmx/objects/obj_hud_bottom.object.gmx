@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>frame_width = view_wview[0];
 frame_height = view_hview[0];
+
+player_image_size = frame_width * 0.05;
+player_health_width = frame_width * 0.2;
 
 hud_width = sprite_get_width(spr_hud_blue);
 hud_height = sprite_get_height(spr_hud_blue);
@@ -67,6 +70,7 @@ button_ystart = (frame_height - hud_height) + button_yspacing;
             <string>var screen_x = mouse_x - view_xview[0];
 var screen_y = mouse_y - view_yview[0];
 
+/*
 console_log("x: " + string(screen_x));
 console_log("y: " + string(screen_y));
 
@@ -82,6 +86,7 @@ console_log("button h: " + string(button_height));
 console_log("button spacing y: " + string(button_yspacing));
 console_log("button spacing x: " + string(button_xspacing));
 
+*/
 for (var w = 1; w &lt;= 4; w++) {
     var x1 = (button_xstart * w) + (button_width * (w-1));
     var y1 = button_ystart;
@@ -120,18 +125,52 @@ for (var w = 1; w &lt;= 4; w++) {
             <kind>1</kind>
             <string>var button_xscale = button_height / sprite_get_height(spr_testbutton);
 var button_yscale = button_width / sprite_get_width(spr_testbutton);
+var player_count = instance_number(obj_player);
+var players;
 
+var hud_spacing = 10;
+
+for(i = 0; i &lt; player_count; i++){
+    players[i] = instance_find(obj_player, i);
+    
+    //Creep Button / Player Face
+    //draw_sprite_ext(spr_player_face1, 0, hud_left_xpos, hud_top_ypos, 1, 1, 0, -1, 1);
+    
+    switch(i){
+        case 0:
+        //Top Left
+            //Player health
+            draw_sprite_ext(spr_health, 0, hud_spacing, hud_spacing, 1, 1, 0, -1, 1);
+             break;
+        case 1:
+        //Top Right
+            draw_sprite_ext(spr_health, 0, (frame_width - sprite_get_width(spr_health)) - 10, hud_spacing, 1, 1, 0, -1, 1);
+            break;
+        case 2:
+        //Bottom Left
+            break;
+        case 3:
+        //Bottom Right
+            break;
+    }
+}
+
+console_log(string(frame_width));
+
+/*
 //Hud
-draw_sprite_ext(spr_hud_blue, 0, 0, view_hview[0], 1, 1, 0, -1, 1);
+if(player_count &gt; 1){
+    draw_sprite_ext(spr_hud_blue, 0, 0, view_hview[0], 1, 1, 0, -1, 1);
+}
+draw_sprite_ext(spr_hud_blue, 0, 0, -(hud_height), 1, 1, 0, -1, 1);
 
 //Creep Buttons
-for (var w = 1; w &lt;= 4; w++) {
+for (var w = 1; w &lt;= player_count; w++) {
     draw_sprite_ext(spr_testbutton, 0, (button_xstart * w) + (button_width * (w-1)), button_ystart, button_xscale, button_yscale, 0, -1, 1);
     //Debuging
     //draw_rectangle((button_xstart * w) + (button_width * (w-1)), button_ystart, ((button_xstart * w) + (button_width * (w-1))) + button_width, button_ystart + button_height, true);
 }
-
-
+*/
 </string>
           </argument>
         </arguments>
