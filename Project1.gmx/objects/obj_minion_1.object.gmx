@@ -34,7 +34,7 @@ hp_max = 7;
 hp = hp_max;
 loaded = true;
 load_time = 0;
-load_speed = room_speed / 2;
+load_speed = room_speed * 2;
 damage_min = 1;
 damage_max = 4;
 move_speed = 4;
@@ -231,27 +231,47 @@ draw_set_alpha(1);
     } else {
         draw_sprite_ext(spr_legs, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
     }
-
-    switch (player.number) {
-        case 1: {
-            draw_sprite_ext(spr_arm_1, image_index, x, y + (image_index / 2 % 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-            draw_sprite_ext(spr_body_1, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-            break;
+    if (load_time &gt; 0) {
+        switch (player.number) {
+            case 1: {
+                draw_sprite_ext(spr_punch_1, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                break;
+            }
+            case 2: {
+                draw_sprite_ext(spr_punch_2, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                break;
+            }
+            case 3: {
+                draw_sprite_ext(spr_punch_3, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                break;
+            }
+            case 4: {
+                draw_sprite_ext(spr_punch_4, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                break;
+            }
         }
-        case 2: {
-            draw_sprite_ext(spr_arm_2, image_index, x, y + (image_index / 2 % 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-            draw_sprite_ext(spr_body_2, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-            break;
-        }
-        case 3: {
-            draw_sprite_ext(spr_arm_3, image_index, x, y + (image_index / 2 % 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-            draw_sprite_ext(spr_body_3, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-            break;
-        }
-        case 4: {
-            draw_sprite_ext(spr_arm_4, image_index, x, y + (image_index / 2 % 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-            draw_sprite_ext(spr_body_4, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-            break;
+    } else {
+        switch (player.number) {
+            case 1: {
+                draw_sprite_ext(spr_arm_1, image_index, x, y + (image_index / 2 % 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                draw_sprite_ext(spr_body_1, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                break;
+            }
+            case 2: {
+                draw_sprite_ext(spr_arm_2, image_index, x, y + (image_index / 2 % 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                draw_sprite_ext(spr_body_2, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                break;
+            }
+            case 3: {
+                draw_sprite_ext(spr_arm_3, image_index, x, y + (image_index / 2 % 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                draw_sprite_ext(spr_body_3, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                break;
+            }
+            case 4: {
+                draw_sprite_ext(spr_arm_4, image_index, x, y + (image_index / 2 % 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                draw_sprite_ext(spr_body_4, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+                break;
+            }
         }
     }
 /*

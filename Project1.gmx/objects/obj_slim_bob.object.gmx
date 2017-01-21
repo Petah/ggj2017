@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>step_size = random_range(0, rel_speed(8));
+            <string>step_size = random_range(0, rel_speed(4));
 look_ahead = 4;
 moving = false;
 head_towards = 0;
