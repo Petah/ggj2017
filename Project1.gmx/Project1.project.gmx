@@ -15,6 +15,7 @@
       <sprite>sprites\spr_console</sprite>
       <sprite>sprites\spr_overlord</sprite>
       <sprite>sprites\spr_viking</sprite>
+      <sprite>sprites\spr_slow</sprite>
       <sprite>sprites\spr_druid</sprite>
       <sprite>sprites\spr_swipe</sprite>
     </sprites>
@@ -88,6 +89,7 @@
       <object>objects\obj_console</object>
       <object>objects\obj_player</object>
       <object>objects\obj_spawn</object>
+      <object>objects\obj_slow</object>
       <object>objects\obj_swipe</object>
       <object>objects\obj_server</object>
     </objects>

@@ -37,6 +37,8 @@ load_time = 0;
 load_speed = room_speed / 2;
 damage_min = 1;
 damage_max = 4;
+move_speed = 4;
+
 </string>
           </argument>
         </arguments>
@@ -115,8 +117,11 @@ damage_max = 4;
             }
         }
     } else {
-        var random_step_size = step_size + random_range(-1, 1);
-        mp_potential_step(move_towards_x, move_towards_y, random_step_size, false);
+        var current_speed = move_speed;
+        if (place_meeting(x, y, obj_slow)) {
+            current_speed = move_speed / 2;
+        }
+        mp_potential_step(move_towards_x, move_towards_y, current_speed, false);
     }
 }
 
