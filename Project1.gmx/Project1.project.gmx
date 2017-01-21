@@ -90,10 +90,6 @@
       <script>scripts\check_input.gml</script>
     </scripts>
     <scripts name="jason">
-      <script>scripts\spawn_right.gml</script>
-      <script>scripts\spawn_left.gml</script>
-      <script>scripts\spawn_up.gml</script>
-      <script>scripts\spawn_down.gml</script>
       <script>scripts\set_minion_stats.gml</script>
     </scripts>
     <script>scripts\mob_move.gml</script>
