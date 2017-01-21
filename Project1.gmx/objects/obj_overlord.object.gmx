@@ -43,14 +43,11 @@ global.particle_system = part_system_create();
 global.particle_type = part_type_create();
 global.particle_emmiter = part_emitter_create(global.particle_system);;
 
-part_system_depth(global.particle_system, -100000);  
-part_type_shape(global.particle_type, pt_shape_pixel);
-part_type_colour1(global.particle_type, c_maroon);
-part_type_alpha2(global.particle_type, 1, 0);
-part_type_speed(global.particle_type, 3, 6, -0.2, 2);
-part_type_gravity(global.particle_type, 0.50, 270);
-part_type_blend(global.particle_system, true);
-part_type_life(global.particle_system, room_speed/2, room_speed/2);
+part_system_depth(global.particle_system, 100000);  
+part_type_sprite(global.particle_type, spr_blood, false, false, false);
+part_type_colour1(global.particle_type, c_red);
+part_type_speed(global.particle_type, 3, 6, -0.5, 0);
+part_type_life(global.particle_system, room_speed*3, room_speed*5);
 
 </string>
           </argument>
