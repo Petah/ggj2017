@@ -8,13 +8,12 @@ randomize();
 for(var i = 0; i < room_width/divider; i++){
     for(var j = 0; j < room_height/divider; j++){
         ds_grid_set(grid, i, j, "index i:" + string(i) + " index j:" + string(j));
-        instance_create(i*divider, j*divider, obj_filler);
+        //instance_create(i*divider, j*divider, obj_filler);
+        
+        tile_add(background2, 0, 0, divider, divider, i*divider, j*divider, 9000);
     }
 }
 
 generate_laval_pool();
-        
-instance_create(0, 0, obj_player1);
-instance_create(0, room_height-32, obj_player2);
-instance_create(room_width-32, 0, obj_player_3);
-instance_create(room_width-32, room_height-32, obj_player_4);
+generate_rocks();
+

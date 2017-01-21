@@ -102,6 +102,8 @@ if (head_towards &lt; 90 || head_towards &gt; 270) {
     image_xscale = -1;
 }
 
+depth = y;
+
 </string>
           </argument>
         </arguments>
