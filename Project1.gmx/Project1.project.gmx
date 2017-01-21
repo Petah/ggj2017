@@ -76,6 +76,7 @@
     <sprite>sprites\spr_logo</sprite>
     <sprite>sprites\spr_soldier</sprite>
     <sprite>sprites\spr_samurai</sprite>
+    <sprite>sprites\spr_base_1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
