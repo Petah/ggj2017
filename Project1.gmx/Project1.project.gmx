@@ -52,9 +52,9 @@
       <sprite>sprites\spr_boulder</sprite>
       <sprite>sprites\spr_tree1</sprite>
       <sprite>sprites\spr_tree2</sprite>
-      <sprite>sprites\spr_pebble1</sprite>
       <sprite>sprites\spr_pebble2</sprite>
       <sprite>sprites\spr_pebble3</sprite>
+      <sprite>sprites\spr_pebble1</sprite>
       <sprite>sprites\spr_rock1</sprite>
       <sprite>sprites\spr_rock2</sprite>
       <sprite>sprites\spr_rock3</sprite>
@@ -114,6 +114,7 @@
       <object>objects\obj_spawn</object>
       <object>objects\obj_slow</object>
       <object>objects\obj_swipe</object>
+      <object>objects\obj_hitable</object>
       <object>objects\obj_server</object>
     </objects>
     <objects name="harry">

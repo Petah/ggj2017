@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-10</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_hitable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -100,7 +100,7 @@ health_y_offset = 16;
         load_time--;
     }
     
-    var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 16, obj_minion_1, true, true);
+    var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 16, obj_hitable, true, true);
     if (hurt_instance) {
         if (loaded) {
             if (hurt_instance.player.number != self.player.number) {
@@ -111,6 +111,7 @@ health_y_offset = 16;
                 hurt_instance.hp -= random_range(damage_min, damage_max)/hurt_instance.armor;
                 if (hurt_instance.hp &lt;= 0) {
                     with (hurt_instance) {
+                        event_user(0);
                         blood_splatter(hurt_instance.x, hurt_instance.y, 20, point_direction(x, y, hurt_instance.x, hurt_instance.y));
                         instance_destroy();
                     }
@@ -137,6 +138,29 @@ if (head_towards &lt; 90 || head_towards &gt; 270) {
 
 depth = -y;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Dead
 </string>
           </argument>
         </arguments>
