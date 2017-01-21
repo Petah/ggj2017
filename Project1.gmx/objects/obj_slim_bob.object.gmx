@@ -92,20 +92,20 @@ instance_create(x +10, y+10 , obj_powerup_health);
           <argument>
             <kind>1</kind>
             <string>var inst = instance_nearest(x, y, obj_minion_1);
+if (inst) {
+    mp_potential_step(inst.x, inst.y, step_size, false);
+    head_towards = point_direction(x,y,inst.x,inst.y);
 
-mp_potential_step(inst.x, inst.y, step_size, false);
-head_towards = point_direction(x,y,inst.x,inst.y);
-
-var hit_towards_x = x + lengthdir_x(step_size * 2, head_towards);
-var hit_towards_y = y + lengthdir_y(step_size * 2, head_towards);
-
-if (load_time &lt; 0) {
+    var hit_towards_x = x + lengthdir_x(step_size * 2, head_towards);
+    var hit_towards_y = y + lengthdir_y(step_size * 2, head_towards);
+    
+    if (load_time &lt; 0) {
         loaded = true;
     } else {
         load_time--;
     }
-
-var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 32, obj_hitable, true, true);
+    
+    var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 32, obj_hitable, true, true);
     if (hurt_instance) {
         if (loaded) {
                 loaded = false;
@@ -116,11 +116,11 @@ var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 32, obj_hitab
                 if (hurt_instance.hp &lt;= 0) {
                     with (hurt_instance) {
                         event_user(0);
-                        blood_splatter(hurt_instance.x, hurt_instance.y, 20, point_direction(x, y, hurt_instance.x, hurt_instance.y));
+                        particle_blood(hurt_instance.x, hurt_instance.y, 20, point_direction(x, y, hurt_instance.x, hurt_instance.y));
                         instance_destroy();
                     }
                 } else {
-                    blood_splatter(hurt_instance.x, hurt_instance.y, 10, point_direction(x, y, hurt_instance.x, hurt_instance.y));
+                    particle_blood(hurt_instance.x, hurt_instance.y, 10, point_direction(x, y, hurt_instance.x, hurt_instance.y));
                 }
                 audio_play_sound(snd_hit, 1, false);
         }
@@ -131,6 +131,7 @@ var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 32, obj_hitab
         }
         mp_potential_step(inst.x, inst.y, step_size, false);
     }
+}
 </string>
           </argument>
         </arguments>
