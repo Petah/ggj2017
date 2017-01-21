@@ -65,6 +65,8 @@
       <sprite>sprites\spr_boulder2</sprite>
       <sprite>sprites\spr_boulder3</sprite>
       <sprite>sprites\spr_spire</sprite>
+      <sprite>sprites\spr_temp_slim_bob</sprite>
+      <sprite>sprites\spr_tree3</sprite>
     </sprites>
     <sprites name="jason">
       <sprite>sprites\spr_spawner_placeholder</sprite>
@@ -165,6 +167,8 @@
       <object>objects\obj_pebble6</object>
       <object>objects\obj_pebble7</object>
       <object>objects\obj_spire</object>
+      <object>objects\obj_slim_bob</object>
+      <object>objects\obj_tree3</object>
     </objects>
     <object>objects\obj_logo</object>
   </objects>
