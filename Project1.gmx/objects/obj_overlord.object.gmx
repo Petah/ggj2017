@@ -86,12 +86,38 @@ for (var i = 0; i &lt; gp_num; i++;){
         if (!in_use) {
             add_player(global.CONTROLLER_GAMEPAD, i);
         }
+        break;
+    }
+    if (keyboard_check_released(vk_enter)) {
+        var in_use = false;
+        with (obj_player) {
+            if (controller == global.CONTROLLER_KEYBOARD_1) {
+                in_use = true;
+            }
+        }
+        if (!in_use) {
+            add_player(global.CONTROLLER_KEYBOARD_1, 1);
+        }
+        break;
+    }
+    if (keyboard_check_released(vk_shift)) {
+        var in_use = false;
+        with (obj_player) {
+            if (controller == global.CONTROLLER_KEYBOARD_2) {
+                in_use = true;
+            }
+        }
+        if (!in_use) {
+            add_player(global.CONTROLLER_KEYBOARD_2, 2);
+        }
+        break;
     }
     if (room = rm_menu) {
         if (gamepad_button_check_released(i, gp_start)) {
             console_log("Starting game");
             room_goto(rm_game);
         }
+        break;
     }
 }
 
@@ -158,36 +184,12 @@ for (var i = 0; i &lt; gp_num; i++;){
     var length = ds_list_size(players);
     for (var i = 0; i &lt; length; i++) {
         var player = ds_list_find_value(players, i);
-        switch (player.number) {
-            case 1: {
-                console_log("Spawning player 1 base");
-                var spawner = instance_create(0, 0, obj_spawner_base);
-                spawner.player = player;
-                break;
-            }
-            case 2: {
-                console_log("Spawning player 2 base");
-                var spawner = instance_create(room_width - sprite_get_width(spr_spawner_placeholder), room_height - sprite_get_height(spr_spawner_placeholder), obj_spawner_base);
-                spawner.player = player;
-                break;
-            }
-            case 3: {
-                console_log("Spawning player 3 base");
-                var spawner = instance_create(room_width - sprite_get_width(spr_spawner_placeholder), 0, obj_spawner_base);
-                spawner.player = player;
-                break;
-            }
-            case 4: {
-                console_log("Spawning player 4 base");
-                var spawner = instance_create(0, room_height - sprite_get_height(spr_spawner_placeholder), obj_spawner_base);
-                spawner.player = player;
-                break;
-            }
-        }
+        place_player(player);
     }
     instance_create(0, 0, obj_hud_bottom);    
     map_gen();
 }
+
 </string>
           </argument>
         </arguments>
@@ -242,58 +244,6 @@ for (var i = 0; i &lt; gp_num; i++;){
     game_restart();
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="16">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (room = rm_menu) {
-    add_player(global.CONTROLLER_KEYBOARD_2, 2);
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (room = rm_menu) {
-    add_player(global.CONTROLLER_KEYBOARD_1, 1);
-}
-    
 </string>
           </argument>
         </arguments>

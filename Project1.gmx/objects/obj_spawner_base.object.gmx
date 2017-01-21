@@ -50,7 +50,7 @@ alarm[0] = 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>console_log("Create creep for player " + string(player.number));
+            <string>// console_log("Create creep for player " + string(player.number));
 
 var instance = instance_create(0, 0, obj_minion_1);
 instance.player = player;

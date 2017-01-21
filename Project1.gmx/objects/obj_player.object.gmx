@@ -101,19 +101,19 @@ if (button_right) {
 }
 
 if (button_action_1) {
-    console_log("Action 1 player " + string(number));
+//    console_log("Action 1 player " + string(number));
 }
 
 if (button_action_2) {
-    console_log("Action 2 player " + string(number));
+//    console_log("Action 2 player " + string(number));
 }
 
 if (button_action_3) {
-    console_log("Actin 3 player " + string(number));
+//    console_log("Actin 3 player " + string(number));
 }
 
 if (button_action_4) {
-    console_log("Action 4 player " + string(number));
+//    console_log("Action 4 player " + string(number));
 }
 
 </string>

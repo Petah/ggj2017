@@ -79,6 +79,7 @@
       <script>scripts\generate_laval_pool.gml</script>
     </scripts>
     <script>scripts\blood_splatter.gml</script>
+    <script>scripts\place_player.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
