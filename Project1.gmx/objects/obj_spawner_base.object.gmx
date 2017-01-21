@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>armor = 1;
-hp_max = 7;
+hp_max = 70;
 hp = hp_max;
 
 
@@ -70,11 +70,11 @@ switch (player.number) {
         break;
     }
     case 3: {
-        instance.sprite_index = spr_viking;
+        instance.sprite_index = spr_soldier;
         break;
     }
     case 4: {
-        instance.sprite_index = spr_druid;
+        instance.sprite_index = spr_samurai;
         break;
     }
 }
