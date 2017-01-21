@@ -71,6 +71,8 @@
       <sprite>sprites\spr_placeholder_minion</sprite>
       <sprite>sprites\spr_placeholder_boost</sprite>
       <sprite>sprites\spr_placeholder_speed</sprite>
+      <sprite>sprites\spr_placeholder_dmgmax</sprite>
+      <sprite>sprites\spr_placeholder_dmgmin</sprite>
     </sprites>
     <sprite>sprites\sprite31</sprite>
     <sprite>sprites\spr_logo</sprite>
@@ -129,6 +131,8 @@
       <object>objects\obj_powerup_armor</object>
       <object>objects\obj_powerup_generator</object>
       <object>objects\obj_powerup_speed</object>
+      <object>objects\obj_powerup_dmgmax</object>
+      <object>objects\obj_powerup_dmgmin</object>
     </objects>
     <objects name="jake">
       <object>objects\obj_creep</object>

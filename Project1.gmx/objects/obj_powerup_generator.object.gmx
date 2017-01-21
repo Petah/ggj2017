@@ -66,6 +66,12 @@ switch(power_int) {
     case 2:
         powerup_type = obj_powerup_health;
         break;
+    case 3:
+        powerup_type = obj_powerup_dmgmax;
+        break;
+    case 4:
+        powerup_type = obj_powerup_dmgmin;
+        break;
     default:
         powerup_type = obj_powerup_speed;
         break;
