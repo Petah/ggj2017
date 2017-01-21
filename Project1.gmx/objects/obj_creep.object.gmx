@@ -26,8 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>move_speed = 5;
-mp_potential_settings(45, 3, 3, true);
-
 </string>
           </argument>
         </arguments>

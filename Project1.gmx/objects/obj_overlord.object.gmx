@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// window_set_fullscreen(true);
+            <string>//mp_potential_settings(360, 5, 3, true);
+
+// window_set_fullscreen(true);
 //window_set_position(0, 0);
 window_set_size(1200, 900);
 /*
