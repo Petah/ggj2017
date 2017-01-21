@@ -27,7 +27,8 @@
         <sprite>sprites\spr_mob_backward</sprite>
       </sprites>
       <sprite>sprites\spr_obstacle</sprite>
-      <sprite>sprites\spr_blood</sprite>
+      <sprite>sprites\spr_particle_blood</sprite>
+      <sprite>sprites\spr_particle_cloud</sprite>
     </sprites>
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
@@ -73,9 +74,14 @@
       <sprite>sprites\spr_placeholder_minion</sprite>
       <sprite>sprites\spr_placeholder_boost</sprite>
       <sprite>sprites\spr_placeholder_speed</sprite>
+      <sprite>sprites\spr_placeholder_dmgmax</sprite>
+      <sprite>sprites\spr_placeholder_dmgmin</sprite>
     </sprites>
     <sprite>sprites\sprite31</sprite>
     <sprite>sprites\spr_logo</sprite>
+    <sprite>sprites\spr_soldier</sprite>
+    <sprite>sprites\spr_samurai</sprite>
+    <sprite>sprites\spr_base_1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -89,10 +95,6 @@
       <script>scripts\check_input.gml</script>
     </scripts>
     <scripts name="jason">
-      <script>scripts\spawn_right.gml</script>
-      <script>scripts\spawn_left.gml</script>
-      <script>scripts\spawn_up.gml</script>
-      <script>scripts\spawn_down.gml</script>
       <script>scripts\set_minion_stats.gml</script>
     </scripts>
     <script>scripts\mob_move.gml</script>
@@ -104,8 +106,9 @@
       <script>scripts\generate_rocks.gml</script>
       <script>scripts\generate_trees.gml</script>
     </scripts>
-    <script>scripts\blood_splatter.gml</script>
+    <script>scripts\particle_blood.gml</script>
     <script>scripts\place_player.gml</script>
+    <script>scripts\particle_dust.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -132,6 +135,8 @@
       <object>objects\obj_powerup_armor</object>
       <object>objects\obj_powerup_generator</object>
       <object>objects\obj_powerup_speed</object>
+      <object>objects\obj_powerup_dmgmax</object>
+      <object>objects\obj_powerup_dmgmin</object>
     </objects>
     <objects name="jake">
       <object>objects\obj_creep</object>
