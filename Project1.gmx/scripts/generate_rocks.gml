@@ -11,9 +11,9 @@ var horizontal_grid_spaces = room_width/divider;
 var verticle_grid_spaces   = room_height/divider;
 
 var current_height;
-var selected_height;
+var selected_height = 0;
 var current_width;
-var selected_width;
+var selected_width = 0;
 
 for(var i = 0; i < number_of_rocks; i++){
     // > 1 for up,  < 1 for down

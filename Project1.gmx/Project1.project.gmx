@@ -27,6 +27,7 @@
         <sprite>sprites\spr_mob_backward</sprite>
       </sprites>
       <sprite>sprites\spr_obstacle</sprite>
+      <sprite>sprites\spr_blood</sprite>
     </sprites>
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
