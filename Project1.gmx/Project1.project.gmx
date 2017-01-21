@@ -27,7 +27,8 @@
         <sprite>sprites\spr_mob_backward</sprite>
       </sprites>
       <sprite>sprites\spr_obstacle</sprite>
-      <sprite>sprites\spr_blood</sprite>
+      <sprite>sprites\spr_particle_blood</sprite>
+      <sprite>sprites\spr_particle_cloud</sprite>
     </sprites>
     <sprites name="harry">
       <sprite>sprites\spr_hud_blue</sprite>
@@ -65,6 +66,8 @@
       <sprite>sprites\spr_boulder2</sprite>
       <sprite>sprites\spr_boulder3</sprite>
       <sprite>sprites\spr_spire</sprite>
+      <sprite>sprites\spr_temp_slim_bob</sprite>
+      <sprite>sprites\spr_tree3</sprite>
     </sprites>
     <sprites name="jason">
       <sprite>sprites\spr_spawner_placeholder</sprite>
@@ -115,8 +118,9 @@
       <script>scripts\generate_rocks.gml</script>
       <script>scripts\generate_trees.gml</script>
     </scripts>
-    <script>scripts\blood_splatter.gml</script>
+    <script>scripts\particle_blood.gml</script>
     <script>scripts\place_player.gml</script>
+    <script>scripts\particle_dust.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
@@ -180,6 +184,8 @@
       <object>objects\obj_pebble6</object>
       <object>objects\obj_pebble7</object>
       <object>objects\obj_spire</object>
+      <object>objects\obj_slim_bob</object>
+      <object>objects\obj_tree3</object>
     </objects>
     <object>objects\obj_logo</object>
   </objects>

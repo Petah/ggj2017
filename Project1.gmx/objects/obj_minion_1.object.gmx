@@ -38,7 +38,7 @@ load_speed = room_speed / 2;
 damage_min = 1;
 damage_max = 4;
 move_speed = 4;
-
+waiting_to_move = true;
 health_y_offset = 16;
 
 </string>
@@ -64,6 +64,8 @@ health_y_offset = 16;
           <argument>
             <kind>1</kind>
             <string>if (moving) {
+    waiting_to_move = false;
+
     switch (head_towards) {
         case 0: {
             move_towards_x = room_width-sprite_xoffset;
@@ -101,10 +103,11 @@ health_y_offset = 16;
         load_time--;
     }
     
-    var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 16, obj_hitable, true, true);
+    var hurt_instance = collision_circle(hit_towards_x, hit_towards_y, 16, obj_minion_1, true, true);
     if (hurt_instance) {
         if (loaded) {
-            if (hurt_instance.player.number != self.player.number) {
+        console_log("Slim bob: " + string(self.player.number));
+            if (hurt_instance.player == false || hurt_instance.player.number != self.player.number) {
                 loaded = false;
                 load_time = load_speed;
                 var swipe = instance_create(x, y, obj_swipe);
@@ -113,11 +116,11 @@ health_y_offset = 16;
                 if (hurt_instance.hp &lt;= 0) {
                     with (hurt_instance) {
                         event_user(0);
-                        blood_splatter(hurt_instance.x, hurt_instance.y, 20, point_direction(x, y, hurt_instance.x, hurt_instance.y));
+                        particle_blood(hurt_instance.x, hurt_instance.y, 20, point_direction(x, y, hurt_instance.x, hurt_instance.y));
                         instance_destroy();
                     }
                 } else {
-                    blood_splatter(hurt_instance.x, hurt_instance.y, 10, point_direction(x, y, hurt_instance.x, hurt_instance.y));
+                    particle_blood(hurt_instance.x, hurt_instance.y, 10, point_direction(x, y, hurt_instance.x, hurt_instance.y));
                 }
                 audio_play_sound(snd_hit, 1, false);
             }
@@ -128,6 +131,9 @@ health_y_offset = 16;
             current_speed = move_speed / 2;
         }
         mp_potential_step(move_towards_x, move_towards_y, current_speed, false);
+    }
+    if (!waiting_to_move) {
+        particle_dust(x, y, 3);
     }
 }
 

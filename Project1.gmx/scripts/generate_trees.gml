@@ -47,8 +47,11 @@ for(var i = 0; i < number_of_trees; i++){
         }
     }
         var inst;
-        if(random(2) > 1){
+        var rand = random(3)
+        if(rand > 1){
             inst = instance_create(selected_width, selected_height, obj_tree1);
+        } else if (rand > 2){
+            inst = instance_create(selected_width, selected_height, obj_tree3);
         } else {
             inst = instance_create(selected_width, selected_height, obj_tree2);
         }
